@@ -1,0 +1,90 @@
+.upcoming-events {
+  margin-top: 90px;
+  margin-left: 20px;
+  font-size: 45px;
+  color: rgba(30, 30, 167, 0.563);
+}
+
+.events {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 30px;
+}
+
+.events a p {
+  margin-left: 20px;
+  font-weight: bold;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.events a p:hover {
+  text-decoration: underline;
+}
+
+.upcoming-events-container {
+  display: flex;
+  color: rgb(49, 49, 52);
+  margin-bottom: 40px;
+  margin-left: 20px;
+  margin-right: 20px;
+
+}
+
+.upcoming-events-left,
+.upcoming-events-middle {
+    margin-right: 15px;
+}
+
+ .image-container { 
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  margin-bottom: 30px;
+  border-radius: 20px;
+  overflow: hidden;
+
+  position: relative;
+ }
+
+ .image-container img {
+  width: 100%;
+  height: 100%;
+  transition: 0.3s;
+ }
+
+ .image-container img:hover {
+  transform: scale(1.03);
+ }
+
+ .events-header {
+  color: blue;
+  font-weight: bold;
+  font-size: 14px;
+  color: rgb(49, 49, 52);
+
+ }
+
+ .events-subheader {
+  font-size: 25px;
+ }
+
+ .calendar {
+  position: absolute;
+  z-index: 100;
+ }
+
+
+ .events-description {
+  width: 350px;
+  color: rgba(30, 30, 167, 0.563);
+ }
+
+
+
+
+
+
+
+
+
