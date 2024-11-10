@@ -22,7 +22,10 @@ h1, h2, h3 {
     --bg-color-light: #f8f9fa;
     --text-color-dark: #f8f9fa;
     --bg-color-dark: #121212;
+    --header-bg: rgba(255, 255, 255, 0.92);
     --text-color: var(--text-color-light);
+    --nav-link-color: #d3d0d0;
+    --nav-link-hover-color: #ffffff;
     --bg-color: var(--bg-color-light);
     --bg-planet-bright: #F2C94C;
     --bg-planet-shadow: #828894;

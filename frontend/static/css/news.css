@@ -1,0 +1,140 @@
+/* Universal styles */
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    transition: background-color 0.3s, color 0.3s;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3 {
+    font-family: 'EB Garamond', serif;
+}
+
+/* Theme colors */
+:root {
+    --primary-color: #521262;
+    --primary-color-lighter: #76158f;
+    --secondary-color: #105f94;
+    --secondary-color-lighter: #1374b4;
+    --text-color-light: #333;
+    --bg-color-light: #f8f9fa;
+    --text-color-dark: #f8f9fa;
+    --bg-color-dark: #121212;
+    --text-color: var(--text-color-light);
+    --bg-color: var(--bg-color-light);
+    --bg-planet-bright: #F2C94C;
+    --bg-planet-shadow: #828894;
+    --bg-planet-lightshadow: #D7D7D820;
+    --bg-planet-bright-dark: #D7D7D8;
+    --dot-size: 0.25rem;
+}
+
+body {
+    font-family: sans-serif;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+}
+.logo {
+    display: flex;
+    align-items: center;
+}
+.logo img {
+    height: 50px;
+}
+.nav {
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+}
+.nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+.news-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 30px;
+    padding: 20px;
+}
+.news-card {
+    width: 28%;
+    margin-bottom: 30px;
+    border: 1px solid #ddd;
+    padding: 20px;
+}
+.news-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.news-card h3 {
+    margin-top: 10px;
+    font-size: 1.2rem;
+}
+.news-card p {
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+
+/*NEWS SECTION*/
+.container {
+    display: flex;
+    gap: 20px; 
+}
+
+h6{
+    text-align: center;
+}
+
+.card-title{
+    text-align: center;
+    font-size: 15px;
+}
+
+.main-card {
+    flex: 2; 
+}
+
+.right-cards {
+    flex: 1; 
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr 1fr; 
+    gap: 20px; 
+}
+
+.right-card {
+    padding: 20px;
+    height: 330px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.right-card img {
+    width: 300px;
+    height: 150px;
+    border-radius: 8px 8px 0 0;
+    padding-left: 10px;
+    padding-right: 35px;
+}
