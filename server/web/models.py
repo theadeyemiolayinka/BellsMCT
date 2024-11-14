@@ -10,12 +10,14 @@ class Blog(models.Model):
     content = CKEditor5Field(config_name='extends')
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     image = models.ImageField(upload_to='blog/')
+    tags = models.TextField(blank=True, null=True)
+    # tags = models.JSONField(blank=True, null=True, default=list)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    deleted_at = models.DateTimeField(blank=True, null=True, default=None)
+    hidden_at = models.DateTimeField(blank=True, null=True, default=None)
 
     def __str__(self):
-        return self.title + ' - ' + self.author.username
+        return self.title
     
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -29,11 +31,11 @@ class Blog(models.Model):
     
     @classmethod
     def get_active_blogs(cls):
-        return cls.objects.filter(deleted_at__isnull=True)
+        return cls.objects.filter(hidden_at__isnull=True)
     
     @classmethod
-    def get_deleted_blogs(cls):
-        return cls.objects.filter(deleted_at__isnull=False)
+    def get_hidden_blogs(cls):
+        return cls.objects.filter(hidden_at__isnull=False)
     
     @classmethod
     def get_blog_by_slug(cls, slug):
@@ -44,15 +46,36 @@ class Blog(models.Model):
         return cls.objects.get(id=id)
     
     @classmethod
-    def delete_blog(cls, id):
+    def hide_blog(cls, id):
         blog = cls.get_blog_by_id(id)
-        blog.deleted_at = timezone.now()
+        blog.hidden_at = timezone.now()
         blog.save()
         return blog
     
     @classmethod
     def restore_blog(cls, id):
         blog = cls.get_blog_by_id(id)
-        blog.deleted_at = None
+        blog.hidden_at = None
         blog.save()
         return blog
+    
+
+class Enquiry(models.Model):
+    STATUS_CHOICES = [
+        ('new', 'New'),
+        ('in_progress', 'In Progress'),
+        ('resolved', 'Resolved'),
+        ('closed', 'Closed'),
+    ]
+
+    id = models.UUIDField(primary_key=True)
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    subject = models.TextField(max_length=100)
+    message = models.TextField()
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='new')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f"Enquiry from {self.name} - {self.subject}"

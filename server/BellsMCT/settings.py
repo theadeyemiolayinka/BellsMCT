@@ -15,6 +15,7 @@ import os
 from pathlib import Path
 from decouple import config
 
+from django.apps import apps
 from django.templatetags.static import static
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
@@ -51,9 +52,12 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # 'django.contrib.sites',
     # Plugins
     "django_ckeditor_5",
     "django_bunny",
+    "sorl.thumbnail",
+    # 'newsletter',
     # Apps
     "web.apps.WebConfig",
 ]
@@ -69,7 +73,7 @@ MIDDLEWARE = [
 ]
 
 if DEBUG:
-    MIDDLEWARE.insert(0, 'kolo.middleware.KoloMiddleware')
+    MIDDLEWARE.insert(0, "kolo.middleware.KoloMiddleware")
 
 ROOT_URLCONF = "BellsMCT.urls"
 
@@ -112,6 +116,7 @@ DATABASES = {
     },
 }
 
+NEWSLETTER_THUMBNAIL = "sorl-thumbnail"
 
 ####################################
 ##  BUNNY CONFIGURATION ##
@@ -144,6 +149,11 @@ STORAGES = {
         "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
     },
 }
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+    "/var/www/static/",
+]
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -205,7 +215,7 @@ customColorPalette = [
     {"color": "hsl(207, 90%, 54%)", "label": "Blue"},
 ]
 
-CKEDITOR_5_CUSTOM_CSS = "path_to.css"
+CKEDITOR_5_CUSTOM_CSS = "css/ck.css"
 CKEDITOR_5_FILE_STORAGE = "django_bunny.storage.BunnyStorage"
 CKEDITOR_5_CONFIGS = {
     "default": {
@@ -364,20 +374,20 @@ UNFOLD = {
     "SITE_HEADER": "Bells MCT Nexus Admin",
     "SITE_URL": "/",
     "SITE_ICON": {
-        "light": lambda request: static("icon-light.svg"),
-        "dark": lambda request: static("icon-dark.svg"),
+        "light": lambda request: static("images/icon-light.png"),
+        "dark": lambda request: static("images/icon-dark.png"),
     },
     "SITE_LOGO": {
-        "light": lambda request: static("logo-light.svg"),
-        "dark": lambda request: static("logo-dark.svg"),
+        "light": lambda request: static("images/logo-light.png"),
+        "dark": lambda request: static("images/logo-dark.png"),
     },
     "SITE_SYMBOL": "speed",
     "SITE_FAVICONS": [
         {
             "rel": "icon",
             "sizes": "32x32",
-            "type": "image/svg+xml",
-            "href": lambda request: static("favicon.svg"),
+            "type": "image/png",
+            "href": lambda request: static("favicon.png"),
         },
     ],
     "SHOW_HISTORY": True,
@@ -435,7 +445,6 @@ UNFOLD = {
                         "title": _("Dashboard"),
                         "icon": "dashboard",
                         "link": reverse_lazy("admin:index"),
-                        "badge": "BellsMCT.settings.badge_callback",
                         "permission": lambda request: request.user.is_superuser,
                     },
                     {
@@ -448,53 +457,58 @@ UNFOLD = {
                         "icon": "rss_feed",
                         "link": reverse_lazy("admin:web_blog_changelist"),
                     },
+                    {
+                        "title": _("Enquiry"),
+                        "icon": "help",
+                        "badge": "BellsMCT.settings.enquiry_badge_callback",
+                        "link": reverse_lazy("admin:web_enquiry_changelist"),
+                    },
                 ],
             },
         ],
     },
-    # "TABS": [
-    #     {
-    #         "models": [
-    #             "app_label.model_name_in_lowercase",
-    #         ],
-    #         "items": [
-    #             {
-    #                 "title": _("Your custom title"),
-    #                 "link": reverse_lazy("admin:app_label_model_name_changelist"),
-    #                 "permission": "BellsMCT.settings.permission_callback",
-    #             },
-    #         ],
-    #     },
-    # ],
+    "TABS": [
+        {
+            "models": [
+                "web.blog_in_lowercase",
+            ],
+            "items": [
+                {
+                    "title": _("Blog"),
+                    "link": reverse_lazy("admin:web_blog_changelist"),
+                    "permission": "BellsMCT.settings.permission_callback",
+                },
+            ],
+        },
+    ],
 }
 
 
 def dashboard_callback(request, context):
-    """
-    Callback to prepare custom variables for index template which is used as dashboard
-    template. It can be overridden in application by creating custom admin/index.html.
-    """
     context.update(
         {
-            "sample": "example",
+            "chart": {
+                "headers": ["col 1", "col 2"],
+                "rows": [
+                    ["a", "b"],
+                    ["c", "d"],
+                ],
+            }
         }
     )
     return context
 
 
 def environment_callback(request):
-    """
-    Callback has to return a list of two values represeting text value and the color
-    type of the label displayed in top right corner.
-    """
     env = "Production" if not DEBUG else "Development"
     color = "danger" if env == "Production" else "success"
     return [env, color]
 
 
-def badge_callback(request):
-    return 3
-
-
 def permission_callback(request):
     return request.user.has_perm("BellsMCT.change_model")
+
+
+def enquiry_badge_callback(request):
+    Enquiry = apps.get_model("web", "Enquiry")
+    return Enquiry.objects.filter(status="new").count()

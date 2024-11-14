@@ -1,0 +1,69 @@
+/* Universal styles */
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    transition: background-color 0.3s, color 0.3s;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3 {
+    font-family: 'EB Garamond', serif;
+}
+
+/* Theme colors */
+:root {
+    --primary-color: #521262;
+    --primary-color-lighter: #76158f;
+    --secondary-color: #105f94;
+    --secondary-color-lighter: #1374b4;
+    --text-color-light: #333;
+    --bg-color-light: #f8f9fa;
+    --text-color-dark: #f8f9fa;
+    --bg-color-dark: #121212;
+    --text-color: var(--text-color-light);
+    --bg-color: var(--bg-color-light);
+    --bg-planet-bright: #F2C94C;
+    --bg-planet-shadow: #828894;
+    --bg-planet-lightshadow: #D7D7D820;
+    --bg-planet-bright-dark: #D7D7D8;
+    --dot-size: 0.25rem;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    --text-color: var(--text-color-dark);
+    --bg-color: var(--bg-color-dark);
+}
+
+p.sage-hoverable {
+    position: relative;
+    padding-left: 15px;
+    width: fit-content;
+    z-index: 1;
+}
+
+p.sage-hoverable::before {
+    width: 10px;
+    background: var(--secondary-color);
+    content: '';
+    display: block;
+    left: 0px;
+    position: absolute;
+    height: 100%;
+    transition: width 0.3s ease-in-out;
+    z-index: -1;
+}
+
+p.sage-hoverable:hover::before {
+    width: calc(100% + 15px);
+}
+
+/* Footer */
+footer {
+    padding: 1em;
+    text-align: center;
+    background-color: var(--primary-color);
+    color: white;
+}
