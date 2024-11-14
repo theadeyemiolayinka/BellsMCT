@@ -155,6 +155,42 @@ header.scrolled .nav-link {
     text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
 }
 
+#bottomNavbarContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    width: 100%;
+}
+
+header.scrolled #bottomNavbarContent .b-nav {
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+#bottomNavbarContent .b-nav{
+    width: fit-content;
+    /* transition: background-color 0.9s, box-shadow 0.9s; */
+    position: relative;
+    height: 42px;
+}
+
+#bottomNavbarContent .b-nav::before{
+    opacity: 0;
+    transition: opacity 0.9s, all 0.9s;
+}
+
+header.scrolled #bottomNavbarContent .b-nav::before{
+    content: "";
+    opacity: 1;
+    position: absolute;
+    left: -42px;
+    top: 0;
+    width: 30px;
+    height: 42px;
+    border-left: 42px solid transparent;
+    border-top: 42px solid rgba(255, 255, 255, 0.8);
+}
+
 /* Hamburger */
 @-webkit-keyframes topBar_open {
     0% {
