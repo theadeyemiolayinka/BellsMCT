@@ -9,19 +9,19 @@ header {
     justify-content: space-between;
     height: 100px;
     box-shadow: none;
-    border-bottom: 1px solid #ffffffee;
-    transition: background-color 0.9s, box-shadow 0.9s;
+    border-bottom: 1px solid var(--header-bg);
+    transition: background-color 0.9s, box-shadow 0.9s ease-in-out;
 }
 
 header.scrolled {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: var(--header-bg);
     /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+    border-bottom: 1px solid var(--header-bg);
     backdrop-filter: blur(10px);
-    --bg-planet-bright: #521262;
-    --bg-planet-bright-dark: #77158f63;
-    --bg-planet-lightshadow: #521262;
-    --bg-planet-shadow: #77158fb2;
+}
+
+body.dark-mode header.scrolled {
+    --header-bg: rgba(25, 25, 25, 0.92);
 }
 
 header .logo_mct_dark {
@@ -38,6 +38,38 @@ header.scrolled .logo_mct_dark {
 
 header.scrolled .logo_mct_light {
     display: block;
+}
+
+body.dark-mode header.scrolled .logo_mct_dark {
+    display: block;
+}
+
+body.dark-mode header.scrolled .logo_mct_light {
+    display: none;
+}
+
+header.scrolled .nav-link {
+    --nav-link-color: #333;
+    --nav-link-hover-color: #4e4e4e;
+}
+
+body:not(.dark-mode) header.scrolled  {
+    --bg-planet-bright: #521262;
+    --bg-planet-bright-dark: #77158f63;
+    --bg-planet-lightshadow: #521262;
+    --bg-planet-shadow: #77158fb2;
+}
+
+body.dark-mode header.scrolled {
+    --bg-planet-bright: #F2C94C !important;
+    --bg-planet-shadow: #828894 !important;
+    --bg-planet-lightshadow: #D7D7D820 !important;
+    --bg-planet-bright-dark: #D7D7D8 !important;
+}
+
+body.dark-mode header.scrolled .nav-link {
+    --nav-link-color: #d3d0d0;
+    --nav-link-hover-color: #ffffff;
 }
 
 /* Navbar styles */
@@ -64,7 +96,7 @@ header.scrolled .logo_mct_light {
 }
 
 .nav-link {
-    color: #d3d0d0 !important;
+    color: var(--nav-link-color) !important;
     font-weight: 600;
     margin: 0 0.5rem;
 }
@@ -74,17 +106,13 @@ header.scrolled .logo_mct_light {
 }
 
 .nav-link:hover {
-    color: #ffffff !important;
+    color: var(--nav-link-hover-color) !important;
     text-decoration: underline;
 }
 
 header.scrolled .nav-link:hover {
     color: var(--primary-color-lighter) !important;
     text-decoration: underline;
-}
-
-header.scrolled .nav-link {
-    color: var(--primary-color) !important;
 }
 
 .top-navbar {
@@ -163,32 +191,31 @@ header.scrolled .nav-link {
 }
 
 header.scrolled #bottomNavbarContent .b-nav {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: var(--header-bg);
     backdrop-filter: blur(10px);
 }
 
 #bottomNavbarContent .b-nav{
     width: fit-content;
     /* transition: background-color 0.9s, box-shadow 0.9s; */
+    transition: opacity 0.9s, background-color 0.9s ease-in-out;
     position: relative;
     height: 42px;
 }
 
-#bottomNavbarContent .b-nav::before{
-    opacity: 0;
-    transition: opacity 0.9s, all 0.9s;
-}
-
-header.scrolled #bottomNavbarContent .b-nav::before{
-    content: "";
-    opacity: 1;
+#bottomNavbarContent .b-nav .nav-tri{
     position: absolute;
-    left: -42px;
+    left: -30px;
     top: 0;
     width: 30px;
     height: 42px;
-    border-left: 42px solid transparent;
-    border-top: 42px solid rgba(255, 255, 255, 0.8);
+    background-color: transparent;
+    clip-path: polygon(0 0, 100% 100%, 100% 0);
+    transition: all 0.9s ease-in-out;
+}
+
+header.scrolled #bottomNavbarContent .b-nav .nav-tri {
+    background-color: var(--header-bg);
 }
 
 /* Hamburger */
