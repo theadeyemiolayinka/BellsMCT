@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mechatronics Engineering | Bells University</title>
     <link rel="stylesheet" href="static/css/mdb.css" />
+    <link rel="stylesheet" href="static/css/fa.css" />
     <link rel="stylesheet" href="https://unpkg.com/mouse-follower@1/dist/mouse-follower.min.css">
 
     <link rel="stylesheet" href="static/css/styles.css">
@@ -40,9 +41,10 @@
 
             <div class="top-navbar collapse navbar-collapse" id="topNavbarContent">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item no-mob"><a href="mailto:hi@bellsuniversity.edu.ng"
-                            class="nav-link">hi@bellsuniversity.edu.ng</a></li>
-                    <li class="nav-item no-mob"><a href="tel:2348140557872" class="nav-link">+(234) 81 4055 7872</a>
+                    <li class="nav-item no-mob"><a href="mailto:hi@bellsuniversity.edu.ng" class="nav-link"><i
+                                class="fa-duotone fa-envelope"></i> hi@bellsuniversity.edu.ng</a></li>
+                    <li class="nav-item no-mob"><a href="tel:2348140557872" class="nav-link">
+                            <i class="fa-duotone fa-phone"></i> +(234) 81 4055 7872</a>
                     </li>
                     <li class="nav-item">
                         <button class="nav-top-btn">Login</button>
@@ -104,7 +106,6 @@
         </div>
         <div class="collapse navbar-collapse" id="bottomNavbarContent">
             <ul class="b-nav navbar-nav ms-auto">
-                <span class="nav-tri"></span>
                 <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
                 <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
                 <li class="nav-item"><a href="enquiry.html" class="nav-link">Enquiry</a></li>
@@ -133,12 +134,13 @@
                         <div class="news-card main-card">
                             <div class="main-img-ctn">
                                 <a href="#">
-                                <img src="../frontend/static/images/news/one.jpg" class="card-img-top"
-                                    alt="Main Article Image"></a>
+                                    <img src="../frontend/static/images/news/one.jpg" class="card-img-top"
+                                        alt="Main Article Image"></a>
                             </div>
                             <div class="news-card-body">
                                 <h6 class="text-muted sage-hoverable">Education, Business, & Law</h6>
-                                <h5 class="card-title"><a href="#">Penn GSE dean on meeting and making the moment</a></h5>
+                                <h5 class="card-title"><a href="#">Penn GSE dean on meeting and making the moment</a>
+                                </h5>
                             </div>
                         </div>
                     </div>
@@ -149,8 +151,8 @@
                                 <div class="news-card right-card">
                                     <div class="news-card-img">
                                         <a href="#">
-                                        <img src="../frontend/static/images/news/teo.jpg" class="card-img-top"
-                                            alt="Article 1 Image"></a>
+                                            <img src="../frontend/static/images/news/teo.jpg" class="card-img-top"
+                                                alt="Article 1 Image"></a>
                                     </div>
                                     <div class="news-card-body">
                                         <h6 class="text-muted sage-hoverable">Arts, Humanities, & Social Sciences</h6>
@@ -167,8 +169,8 @@
                                 <div class="news-card right-card">
                                     <div class="news-card-img">
                                         <a href="#">
-                                        <img src="../frontend/static/images/news/three.jpg" class="card-img-top"
-                                            alt="Article 2 Image"></a>
+                                            <img src="../frontend/static/images/news/three.jpg" class="card-img-top"
+                                                alt="Article 2 Image"></a>
                                     </div>
                                     <div class="news-card-body">
                                         <h6 class="text-muted sage-hoverable">Sports</h6>
@@ -184,8 +186,8 @@
                                 <div class="news-card right-card">
                                     <div class="news-card-img">
                                         <a href="#">
-                                        <img src="../frontend/static/images/news/four.jpg" class="card-img-top"
-                                            alt="Article 3 Image"></a>
+                                            <img src="../frontend/static/images/news/four.jpg" class="card-img-top"
+                                                alt="Article 3 Image"></a>
                                     </div>
                                     <div class="news-card-body">
                                         <h6 class="text-muted sage-hoverable">Science & Technology</h6>
@@ -200,8 +202,8 @@
                                 <div class="news-card right-card">
                                     <div class="news-card-img">
                                         <a href="#">
-                                        <img src="../frontend/static/images/news/five.jpg" class="card-img-top"
-                                            alt="Article 4 Image"></a>
+                                            <img src="../frontend/static/images/news/five.jpg" class="card-img-top"
+                                                alt="Article 4 Image"></a>
                                     </div>
                                     <div class="news-card-body">
                                         <h6 class="text-muted sage-hoverable">Campus & Community</h6>
@@ -225,54 +227,76 @@
         </section>
 
         <!-- Events Section -->
-        <section class="events container">
+        <section class="events">
             <h2 class="title">Upcoming Events</h2>
-            <div class="upcoming-events-container row col-12">
-                <div class="upcoming-events col-md-4">
-                    <div class="image-container">
-                        <img class="events-image" src="static/images/events/texh.png" alt="tech image" loading="lazy">
-                        <div class="calendar">
-                            <p>NOV</p>
-                            <p>15</p>
+            <div class="upcoming-events-container">
+                <div class="row">
+                    <div class="upcoming-event col-12 col-md-4">
+                        <div class="event-image-container">
+                            <div class="ev-overlay"></div>
+                            <a href=""><img class="events-image" src="static/images/events/texh.png" alt="tech image"
+                                loading="lazy"></a>
+                            <div class="ev-calendar">
+                                <div class="ev-calendar-month"><p>NOV</p></div>
+                                <p class="ev-calendar-date">17</p>
+                            </div>
                         </div>
+                        <a href="" style="height: 45px;">
+                            <p class="events-header">TALKS</p>
+                        </a>
+                        <a href=""><p class="events-subheader">Election Roundtable</p></a>
+                        <p class="events-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            Perspiciatis
+                            praesentium, libero qui doloribus optio officiis esse iusto sunt, non debitis in est alias
+                            deserunt nemo nulla ducimus, minima obcaecati! Repudiandae.
+                        </p>
                     </div>
-
-                    <p class="events-header">TALKS</p>
-                    <p class="events-subheader">Election Roundtable</p>
-                    <p class="events-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis
-                        praesentium, libero qui doloribus optio officiis esse iusto sunt, non debitis in est alias
-                        deserunt nemo nulla ducimus, minima obcaecati! Repudiandae.
-                    </p>
-                </div>
-                <div class="upcoming-events col-md-4">
-                    <div class="image-container">
-                        <img class="events-image" src="static/images/events/students-jpeg.webp" alt="tech image"
-                            loading="lazy">
+                    <div class="upcoming-event col-12 col-md-4">
+                        <div class="event-image-container">
+                            <div class="ev-overlay"></div>
+                            <a href=""><img class="events-image" src="static/images/events/students-jpeg.webp" alt="tech image"
+                                loading="lazy"></a>
+                            <div class="ev-calendar">
+                                <div class="ev-calendar-month"><p>NOV</p></div>
+                                <p class="ev-calendar-date">16</p>
+                            </div>
+                        </div>
+                        <a href="" style="height: 45px;">
+                            <p class="events-header">TALKS</p>
+                        </a>
+                        <a href=""><p class="events-subheader">Climate change</p></a>
+                        <p class="events-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam
+                            corporis
+                            aliquid veniam vero ut praesentium distinctio quo, fuga voluptatibus quia voluptas quisquam
+                            tempore deserunt. Asperiores dicta delectus enim incidunt alias.</p>
                     </div>
-
-                    <p class="events-header">TALKS</p>
-                    <p class="events-subheader">Climate change</p>
-                    <p class="events-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam corporis
-                        aliquid veniam vero ut praesentium distinctio quo, fuga voluptatibus quia voluptas quisquam
-                        tempore deserunt. Asperiores dicta delectus enim incidunt alias.</p>
-                </div>
-                <div class="upcoming-events col-md-4">
-                    <div class="image-container">
-                        <img class="events-image" src="static/images/events/machine.png" alt="tech image"
-                            loading="lazy">
+                    <div class="upcoming-event col-12 col-md-4">
+                        <div class="event-image-container">
+                            <div class="ev-overlay"></div>
+                            <a href=""><img class="events-image" src="static/images/events/machine.png" alt="tech image"
+                                loading="lazy"></a>
+                            <div class="ev-calendar">
+                                <div class="ev-calendar-month"><p>NOV</p></div>
+                                <p class="ev-calendar-date">15</p>
+                            </div>
+                        </div>
+                        <a href="" style="height: 45px;">
+                            <p class="events-header">SPECIAL EVENTS</p>
+                        </a>
+                        <a href=""><p class="events-subheader">Paint the Dance Floor Wonderland</p></a>
+                        <p class="events-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam
+                            corporis
+                            aliquid veniam vero ut praesentium distinctio quo, fuga voluptatibus quia voluptas quisquam
+                            tempore deserunt. Asperiores dicta delectus enim incidunt alias.</p>
                     </div>
-
-                    <p class="events-header">SPECIAL EVENTS</p>
-                    <p class="events-subheader">Paint the Dance Floor Wonderland</p>
-                    <p class="events-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam corporis
-                        aliquid veniam vero ut praesentium distinctio quo, fuga voluptatibus quia voluptas quisquam
-                        tempore deserunt. Asperiores dicta delectus enim incidunt alias.</p>
                 </div>
             </div>
 
-            <a href="#">
-                <p>MORE EVENTS ON VIA BELLS TECH</p>
-            </a>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h6 class="section-cta"><a href="#">VIEW ALL UPCOMING EVENTS</h6></a>
+                </div>
+            </div>
         </section>
     </main>
 

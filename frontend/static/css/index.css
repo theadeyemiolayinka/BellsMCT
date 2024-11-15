@@ -2,7 +2,8 @@
 .hero {
     background-image: url('../images/hero/hero-01.jpg');
     background-size: cover;
-    height: 82vh;
+    height: 84vh;
+    max-height: 600px;
     position: relative;
     display: flex;
     align-items: center;

@@ -39,6 +39,7 @@ h1, h2, h3 {
 body.dark-mode {
     --text-color: var(--text-color-dark);
     --bg-color: var(--bg-color-dark);
+    --border-color: rgba(255, 255, 255, 0.2);
 }
 
 p.sage-hoverable {
@@ -70,7 +71,7 @@ p.sage-hoverable:hover::before {
     }
 }
 
-section {
+section:not(.hero) {
     margin-top: 50px;
     padding-left: 20px;
     padding-right: 20px;
