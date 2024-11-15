@@ -62,7 +62,6 @@ p.sage-hoverable:hover::before {
 
 /* Footer */
 footer {
-    padding: 1em;
     text-align: center;
     background-color: var(--primary-color);
     color: white;
