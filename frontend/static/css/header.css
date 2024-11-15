@@ -8,6 +8,7 @@ header {
     align-items: center;
     justify-content: space-between;
     height: 100px;
+    width: 100vw;
     box-shadow: none;
     border-bottom: 1px solid var(--header-bg);
     transition: background-color 0.9s, box-shadow 0.9s ease-in-out;
@@ -21,7 +22,7 @@ header.scrolled {
 }
 
 body.dark-mode header.scrolled {
-    --header-bg: rgba(25, 25, 25, 0.92);
+    --header-bg: rgba(49, 49, 49, 0.98);
 }
 
 header .logo_mct_dark {
@@ -48,28 +49,90 @@ body.dark-mode header.scrolled .logo_mct_light {
     display: none;
 }
 
+header .icon_mct_light,
+header .icon_mct_dark {
+    display: none;
+}
+
 header.scrolled .nav-link {
     --nav-link-color: #333;
     --nav-link-hover-color: #4e4e4e;
 }
 
-body:not(.dark-mode) header.scrolled  {
+header.scrolled {
     --bg-planet-bright: #521262;
     --bg-planet-bright-dark: #77158f63;
     --bg-planet-lightshadow: #521262;
     --bg-planet-shadow: #77158fb2;
 }
 
-body.dark-mode header.scrolled {
+/* 
+body:not(.dark-mode) header.scrolled  {
+    --bg-planet-bright: #521262;
+    --bg-planet-bright-dark: #77158f63;
+    --bg-planet-lightshadow: #521262;
+    --bg-planet-shadow: #77158fb2;
+} */
+
+/* body.dark-mode header.scrolled {
     --bg-planet-bright: #F2C94C !important;
     --bg-planet-shadow: #828894 !important;
     --bg-planet-lightshadow: #D7D7D820 !important;
     --bg-planet-bright-dark: #D7D7D8 !important;
-}
+} */
 
 body.dark-mode header.scrolled .nav-link {
     --nav-link-color: #d3d0d0;
     --nav-link-hover-color: #ffffff;
+}
+
+/* Nav items */
+.nav-top-btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: 0;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+body.dark-mode .nav-top-btn {
+    background-color: var(--primary-color-lighter);
+}
+
+@media (max-width: 1024px) {
+    header .logo_mct_dark, header .logo_mct_light {
+        display: none !important;
+    }
+
+    #bottomNavbarContent {
+        display: none !important;
+    }
+
+    header .icon_mct_dark {
+        display: block;
+    }
+
+    header .icon_mct_light {
+        display: none;
+    }
+
+    header.scrolled .icon_mct_dark {
+        display: none;
+    }
+
+    header.scrolled .icon_mct_light {
+        display: block;
+    }
+
+    body.dark-mode header.scrolled .icon_mct_dark {
+        display: block;
+    }
+
+    body.dark-mode header.scrolled .icon_mct_light {
+        display: none;
+    }
 }
 
 /* Navbar styles */
@@ -123,6 +186,7 @@ header.scrolled .nav-link:hover {
 
 .top-navbar .navbar-nav {
     flex-direction: row !important;
+    gap: 20px;
 }
 
 /* Hamburger and Mobile Menu */
@@ -195,7 +259,7 @@ header.scrolled #bottomNavbarContent .b-nav {
     backdrop-filter: blur(10px);
 }
 
-#bottomNavbarContent .b-nav{
+#bottomNavbarContent .b-nav {
     width: fit-content;
     /* transition: background-color 0.9s, box-shadow 0.9s; */
     transition: opacity 0.9s, background-color 0.9s ease-in-out;
@@ -203,7 +267,7 @@ header.scrolled #bottomNavbarContent .b-nav {
     height: 42px;
 }
 
-#bottomNavbarContent .b-nav .nav-tri{
+#bottomNavbarContent .b-nav .nav-tri {
     position: absolute;
     left: -30px;
     top: 0;
@@ -688,7 +752,7 @@ header.scrolled #hamburger .menu-btn .text {
     scale: 0.7;
 }
 
-.theme-toggle label input:checked ~ .planet {
+.theme-toggle label input:checked~.planet {
     scale: 1.45;
 }
 

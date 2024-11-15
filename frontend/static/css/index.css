@@ -36,3 +36,14 @@
     text-align: left;
     font-weight: bold;
 }
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
