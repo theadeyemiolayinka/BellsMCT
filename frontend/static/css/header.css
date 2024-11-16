@@ -8,20 +8,22 @@ header {
     align-items: center;
     justify-content: space-between;
     height: 100px;
+    width: 100vw;
     box-shadow: none;
-    border-bottom: 1px solid #ffffffee;
-    transition: background-color 0.9s, box-shadow 0.9s;
+    border-bottom: 1px solid var(--header-bg);
+    transition: background-color 0.9s, box-shadow 0.9s ease-in-out;
+    z-index: 999999999999999;
 }
 
 header.scrolled {
-    background-color: rgba(255, 255, 255, 0.8);
-    /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+    background-color: var(--header-bg);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid var(--header-bg);
     backdrop-filter: blur(10px);
-    --bg-planet-bright: #521262;
-    --bg-planet-bright-dark: #77158f63;
-    --bg-planet-lightshadow: #521262;
-    --bg-planet-shadow: #77158fb2;
+}
+
+body.dark-mode header.scrolled {
+    --header-bg: rgba(49, 49, 49, 0.98);
 }
 
 header .logo_mct_dark {
@@ -38,6 +40,110 @@ header.scrolled .logo_mct_dark {
 
 header.scrolled .logo_mct_light {
     display: block;
+}
+
+body.dark-mode header.scrolled .logo_mct_dark {
+    display: block;
+}
+
+body.dark-mode header.scrolled .logo_mct_light {
+    display: none;
+}
+
+header .icon_mct_light,
+header .icon_mct_dark {
+    display: none;
+}
+
+header.scrolled .nav-link {
+    --nav-link-color: #333;
+    --nav-link-hover-color: #4e4e4e;
+}
+
+header.scrolled {
+    --bg-planet-bright: #521262;
+    --bg-planet-bright-dark: #77158f63;
+    --bg-planet-lightshadow: #521262;
+    --bg-planet-shadow: #77158fb2;
+}
+
+/* .navbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+.menu-btn.open {
+    transform: translateY(-25px);
+}
+
+/* 
+body:not(.dark-mode) header.scrolled  {
+    --bg-planet-bright: #521262;
+    --bg-planet-bright-dark: #77158f63;
+    --bg-planet-lightshadow: #521262;
+    --bg-planet-shadow: #77158fb2;
+} */
+
+/* body.dark-mode header.scrolled {
+    --bg-planet-bright: #F2C94C !important;
+    --bg-planet-shadow: #828894 !important;
+    --bg-planet-lightshadow: #D7D7D820 !important;
+    --bg-planet-bright-dark: #D7D7D8 !important;
+} */
+
+body.dark-mode header.scrolled .nav-link {
+    --nav-link-color: #d3d0d0;
+    --nav-link-hover-color: #ffffff;
+}
+
+/* Nav items */
+.nav-top-btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: 0;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+body.dark-mode .nav-top-btn {
+    background-color: var(--primary-color-lighter);
+}
+
+@media (max-width: 1024px) {
+    header .logo_mct_dark, header .logo_mct_light {
+        display: none !important;
+    }
+
+    #bottomNavbarContent {
+        display: none !important;
+    }
+
+    header .icon_mct_dark {
+        display: block;
+    }
+
+    header .icon_mct_light {
+        display: none;
+    }
+
+    header.scrolled .icon_mct_dark {
+        display: none;
+    }
+
+    header.scrolled .icon_mct_light {
+        display: block;
+    }
+
+    body.dark-mode header.scrolled .icon_mct_dark {
+        display: block;
+    }
+
+    body.dark-mode header.scrolled .icon_mct_light {
+        display: none;
+    }
 }
 
 /* Navbar styles */
@@ -64,7 +170,7 @@ header.scrolled .logo_mct_light {
 }
 
 .nav-link {
-    color: #d3d0d0 !important;
+    color: var(--nav-link-color) !important;
     font-weight: 600;
     margin: 0 0.5rem;
 }
@@ -74,17 +180,13 @@ header.scrolled .logo_mct_light {
 }
 
 .nav-link:hover {
-    color: #ffffff !important;
+    color: var(--nav-link-hover-color) !important;
     text-decoration: underline;
 }
 
 header.scrolled .nav-link:hover {
     color: var(--primary-color-lighter) !important;
     text-decoration: underline;
-}
-
-header.scrolled .nav-link {
-    color: var(--primary-color) !important;
 }
 
 .top-navbar {
@@ -95,6 +197,7 @@ header.scrolled .nav-link {
 
 .top-navbar .navbar-nav {
     flex-direction: row !important;
+    gap: 20px;
 }
 
 /* Hamburger and Mobile Menu */
@@ -103,7 +206,7 @@ header.scrolled .nav-link {
     cursor: pointer;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     #hamburger {
         display: block;
     }
@@ -163,32 +266,19 @@ header.scrolled .nav-link {
 }
 
 header.scrolled #bottomNavbarContent .b-nav {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: var(--header-bg);
     backdrop-filter: blur(10px);
 }
 
-#bottomNavbarContent .b-nav{
+#bottomNavbarContent .b-nav {
     width: fit-content;
     /* transition: background-color 0.9s, box-shadow 0.9s; */
+    transition: opacity 0.9s, background-color 0.9s ease-in-out;
     position: relative;
+    padding-left: 30px;
+    padding-right: 30px;
     height: 42px;
-}
-
-#bottomNavbarContent .b-nav::before{
-    opacity: 0;
-    transition: opacity 0.9s, all 0.9s;
-}
-
-header.scrolled #bottomNavbarContent .b-nav::before{
-    content: "";
-    opacity: 1;
-    position: absolute;
-    left: -42px;
-    top: 0;
-    width: 30px;
-    height: 42px;
-    border-left: 42px solid transparent;
-    border-top: 42px solid rgba(255, 255, 255, 0.8);
+    clip-path: polygon(0 0, 30px 100%, 100% 100%, 100% 0);
 }
 
 /* Hamburger */
@@ -214,7 +304,7 @@ header.scrolled #bottomNavbarContent .b-nav::before{
     }
 
     100% {
-        transform: translateY(17px) rotate(45deg);
+        transform: translateY(20px) rotate(45deg);
         width: 84px;
     }
 }
@@ -241,7 +331,7 @@ header.scrolled #bottomNavbarContent .b-nav::before{
     }
 
     100% {
-        transform: translateY(17px) rotate(45deg);
+        transform: translateY(20px) rotate(45deg);
         width: 84px;
     }
 }
@@ -268,7 +358,7 @@ header.scrolled #bottomNavbarContent .b-nav::before{
     }
 
     100% {
-        transform: translateY(-8px) rotate(-45deg);
+        transform: translateY(-2px) rotate(-45deg);
         width: 84px;
     }
 }
@@ -295,7 +385,7 @@ header.scrolled #bottomNavbarContent .b-nav::before{
     }
 
     100% {
-        transform: translateY(-8px) rotate(-45deg);
+        transform: translateY(-2px) rotate(-45deg);
         width: 84px;
     }
 }
@@ -661,7 +751,7 @@ header.scrolled #hamburger .menu-btn .text {
     scale: 0.7;
 }
 
-.theme-toggle label input:checked ~ .planet {
+.theme-toggle label input:checked~.planet {
     scale: 1.45;
 }
 

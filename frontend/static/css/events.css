@@ -1,0 +1,134 @@
+.upcoming-events-container {
+  display: flex;
+  gap: 20px;
+}
+
+.upcoming-event {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  justify-content: flex-start;
+  align-content: center;
+}
+
+.event-image-container {
+  width: 95%;
+  margin-left: 2.5%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.ev-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.6s ease-in-out;
+  z-index: 3;
+}
+
+.events-header{
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  
+  padding: 20px;
+  background-color: var(--bg-color-light);
+  width: 80%;
+  
+  transform: translateY(-40px);
+  position: relative;
+  z-index: 5;
+}
+
+.events-header::after {
+  content: '';
+  display: block;
+  left: 30px;
+  width: 20px;
+  height: 3px;
+  background: var(--primary-color);
+  opacity: 0.4;
+  position: absolute;
+  margin-top: 10px;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+body.dark-mode .events-header{
+  background-color: var(--bg-color-dark);
+}
+
+.event-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.6s ease-in-out;
+  z-index: 1;
+}
+
+.event-image-container:hover img {
+  transform: scale(1.1);
+}
+
+.events-subheader {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.5rem;
+}
+
+.ev-calendar {
+  position: absolute;
+  right: 8.5%;
+  top: 9%;
+  width: 60px;
+  height: 80px;
+  background: var(--bg-color-light);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 5px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  z-index: 5;
+}
+
+.ev-calendar-month {
+  text-align: center;
+  height: 30px;
+  width: 100%;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9rem;
+  background: var(--primary-color-lighter);
+}
+
+.ev-calendar-month p {
+  width: fit-content;
+  height: fit-content;
+  margin: 0;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.ev-calendar-date {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  color: var(--secondary-color);
+  font-size: 2.1rem;
+}
+
+@media (min-width: 768px) {
+  .upcoming-events-container .upcoming-event:nth-of-type(2) {
+    border-left: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+  }
+}
