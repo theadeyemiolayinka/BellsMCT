@@ -225,23 +225,32 @@ header.scrolled .nav-link:hover {
     background-color: #521262;
 }
 
+body:has(#mobileMenu.show){
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+}
+
 #mobileMenu {
-    display: none;
-    position: fixed;
+    opacity: 0;
+    position: absolute;
     top: 0;
     right: 0;
     height: 100%;
     width: 100%;
     background-color: rgba(82, 18, 98, 0.95);
     flex-direction: column;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    padding-top: 5rem;
-    z-index: 999;
-    transform: translateX(100%);
-    transition: transform 0.3s ease-in-out;
+    padding-top: 100px;
+    z-index: 100;
+    transform: translateX(150%);
+    transition: all 0.3s ease-in-out;
 }
 
 #mobileMenu.show {
+    opacity: 1;
     transform: translateX(0);
 }
 
@@ -251,11 +260,34 @@ header.scrolled .nav-link:hover {
     margin: 1rem 0;
     text-decoration: none;
     font-family: 'Josefin Sans', sans-serif;
+    width: fit-content;
+    position: relative;
+    transition: all 0.5s ease-in-out;
+}
+
+#mobileMenu a i {
+    margin-right: 7px;
+}
+
+#mobileMenu a::after {
+    background-color: #fff;
+    opacity: 0.4;
+    height: 3px;
+    width: 25%;
+    position: absolute;
+    bottom: -5px;
+    left: 40%;
+    content: '';
+    transition: all 0.5s ease-in-out;
 }
 
 #mobileMenu a:hover {
-    color: #ffd700;
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+    transform: translateX(-20px);
+}
+
+#mobileMenu a:hover::after {
+    /* background-color: var(--secondary-color); */
+    transform: translateX(40px);
 }
 
 #bottomNavbarContent {
@@ -279,6 +311,26 @@ header.scrolled #bottomNavbarContent .b-nav {
     padding-right: 30px;
     height: 42px;
     clip-path: polygon(0 0, 30px 100%, 100% 100%, 100% 0);
+}
+
+#bottomNavbarContent .b-nav .nav-item {
+    margin-left: 14px;
+    position: relative;
+}
+
+#bottomNavbarContent .b-nav .nav-item::after {
+    content: '';
+    position: absolute;
+    right: -12px;
+    top: 32.5%;
+    height: 35%;
+    width: 1px;
+    background-color: var(--border-color);
+    transform: rotate(25deg);
+}
+
+#bottomNavbarContent .b-nav .nav-item:last-of-type:after {
+    display: none;
 }
 
 /* Hamburger */
