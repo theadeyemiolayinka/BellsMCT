@@ -1,43 +1,3 @@
-body {
-    font-family: 'Josefin Sans', sans-serif;
-    color: var(--text-color);
-    background-color: var(--bg-color);
-    transition: background-color 0.3s, color 0.3s;
-    margin: 0;
-    padding: 0;
-}
-
-h1,
-h2,
-h3 {
-    font-family: 'EB Garamond', serif;
-}
-
-/* Variables */
-:root {
-    --primary-color: #521262;
-    --primary-color-lighter: #76158f;
-    --secondary-color: #105f94;
-    --secondary-color-lighter: #1374b4;
-    --text-color-light: #333;
-    --bg-color-light: #f8f9fa;
-    --text-color-dark: #f8f9fa;
-    --bg-color-dark: #121212;
-    --text-color: var(--text-color-light);
-    --bg-color: var(--bg-color-light);
-    --bg-planet-bright: #F2C94C;
-    --bg-planet-shadow: #828894;
-    --bg-planet-lightshadow: #D7D7D820;
-    --bg-planet-bright-dark: #D7D7D8;
-    --dot-size: 0.25rem;
-    --button-hover-bg: #ffffff;
-    --padding: 20px;
-    --spacing-unit: 16px;
-    --border-radius: 10px;
-    --title-font-size: 1.7rem;
-    --description-font-size: 1.2em;
-}
-
 .food-movement-section {
     display: flex;
     align-items: center;
@@ -49,14 +9,10 @@ h3 {
 }
 
 .section-container {
-    /* border: 2px solid var(--hover-color); */
     display: flex;
     align-items: center;
     justify-content: center;
-    /* max-width: 506px; */
     width: 40%;
-    /* padding: var(--padding); */
-    /* width: 100%; */
     background-color: var(--secondary-color);
 }
 
@@ -127,19 +83,19 @@ h3 {
     /* max-width: 700px; */
 }
 
-.section-title {
+.prefooter-section .section-title {
     font-size: var(--title-font-size);
     margin-bottom: 1rem;
     margin-top: 50px;
 }
 
-.section-text {
+.prefooter-section .section-text {
     font-size: var(--text-font-size);
     line-height: 1.8;
     margin-bottom: 1.5rem;
 }
 
-.prefooter-button {
+.prefooter-section .prefooter-button {
     display: inline-block;
     text-transform: uppercase;
     font-size: 0.8rem;
@@ -158,7 +114,7 @@ h3 {
     transition: all 0.25s ease;
 }
 
-.prefooter-button:hover {
+.prefooter-section .prefooter-button:hover {
     background-color: rgba(255, 255, 255, 0.9);
     color: var(--primary-color-lighter);
 }
@@ -179,19 +135,15 @@ h3 {
 }
 
 .footer-opacity {
-    /* width: 100%; */
     background: linear-gradient(to bottom, rgba(82, 18, 98, 0.6), rgba(82, 18, 98, 0.6));
 }
 
 .footer-content {
-    /* border: 2px solid #1374b4; */
     display: flex;
     justify-content: space-between;
-    /* align-items: flex-start; */
     text-align: left;
     flex-wrap: wrap;
     max-width: 100%;
-    /* margin: 0 auto; */
     padding: 70px 100px 70px var(--spacing-unit);
 }
 

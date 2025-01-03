@@ -30,7 +30,14 @@ const hamburger_btn = document.querySelector('#hamburger .menu-btn');
 const mobileMenu = document.getElementById('mobileMenu');
 
 hamburger.addEventListener('click', () => {
-    mobileMenu.classList.toggle('show');
+    if (mobileMenu.classList.contains('show')) {
+        mobileMenu.classList.remove('show');
+        mobileMenu.classList.add('hide');
+    } else {
+        mobileMenu.classList.remove('hide');
+        mobileMenu.classList.add('show');
+    }
+
     if (hamburger_btn.classList.contains('open')) {
         hamburger_btn.classList.remove('open');
         hamburger_btn.classList.add('close');

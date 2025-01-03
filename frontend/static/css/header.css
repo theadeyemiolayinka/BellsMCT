@@ -226,21 +226,22 @@ header.scrolled .nav-link:hover {
 }
 
 body:has(#mobileMenu.show){
-    user-select: none;
+    /* user-select: none;
     -webkit-user-drag: none;
-    -webkit-user-select: none;
+    -webkit-user-select: none; */
+    overflow: hidden;
 }
 
 #mobileMenu {
     opacity: 0;
-    position: absolute;
+    position: fixed;
+    display: none;
     top: 0;
     right: 0;
     height: 100%;
     width: 100%;
     background-color: rgba(82, 18, 98, 0.95);
     flex-direction: column;
-    display: flex;
     justify-content: center;
     align-items: center;
     padding-top: 100px;
@@ -250,8 +251,45 @@ body:has(#mobileMenu.show){
 }
 
 #mobileMenu.show {
+    display: flex;
     opacity: 1;
     transform: translateX(0);
+}
+
+#mobileMenu.hide {
+    display: none;
+    opacity: 0;
+    transform: translateX(150%);
+}
+
+@keyframes menuAppear {
+    0% {
+        opacity: 0;
+        transform: translateX(150%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes menuDisappear {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(150%);
+    }
+}
+
+#mobileMenu.show {
+    animation: menuAppear 0.5s forwards;
+}
+
+#mobileMenu.hide {
+    animation: menuDisappear 0.5s forwards;
 }
 
 #mobileMenu a {

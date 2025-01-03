@@ -33,6 +33,12 @@ h1, h2, h3 {
     --bg-planet-lightshadow: #D7D7D820;
     --bg-planet-bright-dark: #D7D7D8;
     --dot-size: 0.25rem;
+    --button-hover-bg: #ffffff;
+    --padding: 20px;
+    --spacing-unit: 16px;
+    --border-radius: 10px;
+    --title-font-size: 1.7rem;
+    --description-font-size: 1.2em;
 }
 
 /* Dark Mode */
@@ -76,6 +82,16 @@ section:not(.hero) {
     padding-left: 20px;
     padding-right: 20px;
 }
+
+section.prefooter {
+    padding: 0 !important;
+    color: var(--text-color-dark) !important;
+}
+
+section.prefooter .section-title, section.prefooter .section-text, section.prefooter button {
+    color: var(--text-color-dark) !important;
+}
+
 
 @media (min-width: 1024px) {
     section {
