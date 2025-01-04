@@ -15,6 +15,7 @@ from django_ckeditor_5.fields import CKEditor5Field
 
 from .models import Blog
 from .models import Enquiry
+from .models import Event
 
 from django.core.mail import send_mail
 from django.conf import settings
@@ -179,7 +180,60 @@ class EnquiryAdmin(ModelAdmin):
         super().save_model(request, obj, form, change)
 
 
+class EventAdminForm(forms.ModelForm):
+    description = CKEditor5Field(config_name="extends")
+
+    class Meta:
+        model = Event
+        fields = "__all__"
+
+class EventAdmin(ModelAdmin):
+    form = EventAdminForm
+
+    search_fields = ("title", "location", "category", "description")
+    list_filter = ("category", "start_time", "end_time", "deleted_at")
+
+    def is_active(self, obj):
+        return obj.deleted_at is None
+
+    is_active.boolean = True
+    is_active.short_description = "Active"
+
+    list_display = ("title", "location", "start_time", "end_time", "category", "is_active")
+    actions = ["delete_event", "restore_event"]
+    # prepopulated_fields = {"slug": ("title",)}
+
+    def get_form(self, request, obj=None, **kwargs):
+        form = super().get_form(request, obj, **kwargs)
+        if not obj:
+            form.base_fields.pop("slug", None)
+        form.base_fields.pop("id", None)
+        form.base_fields.pop("deleted_at", None)
+        return form
+
+    def save_model(self, request, obj, form, change):
+        if not obj.id:
+            obj.id = uuid.uuid4()
+        super().save_model(request, obj, form, change)
+
+    def delete_event(self, request, queryset):
+        queryset.update(deleted_at=timezone.now())
+
+    delete_event.short_description = "Hide selected events"
+
+    def restore_event(self, request, queryset):
+        queryset.update(deleted_at=None)
+
+    restore_event.short_description = "Restore selected events"
+
+    def get_actions(self, request):
+        actions = super().get_actions(request)
+        if 'delete_selected' in actions:
+            del actions['delete_selected']
+        return actions
 
 
+
+admin.site.register(Event, EventAdmin)
 admin.site.register(Blog, BlogAdmin)
 admin.site.register(Enquiry, EnquiryAdmin)

@@ -393,13 +393,13 @@ UNFOLD = {
     "SHOW_HISTORY": True,
     "SHOW_VIEW_ON_SITE": True,
     "ENVIRONMENT": "BellsMCT.settings.environment_callback",
-    "DASHBOARD_CALLBACK": "BellsMCT.settings.dashboard_callback",
-    # "STYLES": [
-    #     lambda request: static("css/style.css"),
-    # ],
-    # "SCRIPTS": [
-    #     lambda request: static("js/script.js"),
-    # ],
+    "DASHBOARD_CALLBACK": "web.views.dashboard_callback",
+    "STYLES": [
+        lambda request: static("css/admin.css"),
+    ],
+    "SCRIPTS": [
+        lambda request: static("js/admin.js"),
+    ],
     "COLORS": {
         "font": {
             "subtle-light": "107 114 128",
@@ -482,22 +482,6 @@ UNFOLD = {
         },
     ],
 }
-
-
-def dashboard_callback(request, context):
-    context.update(
-        {
-            "chart": {
-                "headers": ["col 1", "col 2"],
-                "rows": [
-                    ["a", "b"],
-                    ["c", "d"],
-                ],
-            }
-        }
-    )
-    return context
-
 
 def environment_callback(request):
     env = "Production" if not DEBUG else "Development"
