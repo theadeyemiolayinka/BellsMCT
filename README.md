@@ -20,7 +20,7 @@ BellsMCT Nexus is a Django-based web application for a departmental website
 |-----------------|---------------------------------------|
 | Python          | Backend Programming language          |
 | Django          | Web framework                         |
-| SQLite          | Development Database                  |
+| MYSQL           | Development Database                  |
 | HTML/CSS        | Frontend markup and styling           |
 | JavaScript      | Frontend scripting                    |
 | Bootstrap       | CSS framework for responsive design   |

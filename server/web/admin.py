@@ -45,6 +45,10 @@ class BlogAdminForm(forms.ModelForm):
         model = Blog
         fields = "__all__"
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['title'].max_length = 100
+
 
 class BlogAdmin(ModelAdmin):
 
@@ -72,7 +76,7 @@ class BlogAdmin(ModelAdmin):
 
     list_display = ("title", "author", "created_at", "get_tags", "is_active")
     actions = ["hide_blog", "unhide_blog"]
-    prepopulated_fields = {"slug": ("title",)}
+    # prepopulated_fields = {"slug": ("title",)}
 
     def get_form(self, request, obj=None, **kwargs):
         form = super().get_form(request, obj, **kwargs)

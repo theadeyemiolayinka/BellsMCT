@@ -1,167 +1,525 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mechatronics Engineering | Bells University</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css"
+    />
 
-    <link rel="stylesheet" href="static/css/styles.css">
-    <link rel="stylesheet" href="static/css/header.css">
-    <link rel="stylesheet" href="static/css/index.css">
-    <link rel="stylesheet" href="static/css/events.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&family=Josefin+Sans&display=swap" rel="stylesheet">
-</head>
+    <link rel="stylesheet" href="static/css/styles.css" />
+    <link rel="stylesheet" href="static/css/header.css" />
+    <link rel="stylesheet" href="static/css/index.css" />
+    <link rel="stylesheet" href="static/css/events.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond&family=Josefin+Sans&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
-    <!-- Header -->
+  <body>
     <header class="navbar navbar-expand-lg fixed-top">
-        <div class="container-fluid">
-            <a href="/" class="navbar-brand logo">
-                <img class="bells" src="static/images/bells.png" height="90px" width="90px" alt="Bells" />
-                <img class="logo_mct_light" src="static/images/logo-light.png" height="55px" width="auto"
-                    alt="BellsMCT" />
-                <img class="logo_mct_dark" src="static/images/logo-dark.png" height="55px" width="auto"
-                    alt="BellsMCT" />
-            </a>
+      <div class="container-fluid">
+        <a href="/" class="navbar-brand logo">
+          <img
+            class="bells"
+            src="static/images/bells.png"
+            height="90px"
+            width="90px"
+            alt="Bells"
+          />
+          <img
+            class="logo_mct_light"
+            src="static/images/logo-light.png"
+            height="55px"
+            width="auto"
+            alt="BellsMCT"
+          />
+          <img
+            class="logo_mct_dark"
+            src="static/images/logo-dark.png"
+            height="55px"
+            width="auto"
+            alt="BellsMCT"
+          />
+          <img
+            class="icon_mct_light"
+            src="static/images/icon-light.png"
+            height="70px"
+            width="70px"
+            alt="BellsMCT"
+          />
+          <img
+            class="icon_mct_dark"
+            src="static/images/icon-dark.png"
+            height="70px"
+            width="70px"
+            alt="BellsMCT"
+          />
+        </a>
 
-
-
-            <div class="top-navbar collapse navbar-collapse" id="topNavbarContent">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-                    <li class="nav-item"><a href="enquiry.html" class="nav-link">Enquiry</a></li>
-                    <li class="nav-item"><a href="event.html" class="nav-link">Event</a></li>
-                </ul>
-            </div>
-            <div style="display: flex; flex-direction: row; align-items: center;">
-                <div class="theme-toggle">
-                    <label>
-                        <input id="theme-toggle-btn" type="checkbox" checked>
-                        <div class="planet">
-                        </div>
-                        <div class="elements">
-                            <svg version="1.1" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="250" cy="250" r="200" />
-                            </svg>
-                            <svg version="1.1" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="250" cy="250" r="200" />
-                            </svg>
-                            <svg version="1.1" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="250" cy="250" r="200" />
-                            </svg>
-                            <svg version="1.1" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="250" cy="250" r="200" />
-                            </svg>
-                            <svg version="1.1" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="250" cy="250" r="200" />
-                            </svg>
-                            <svg version="1.1" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="250" cy="250" r="200" />
-                            </svg>
-                            <svg version="1.1" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="250" cy="250" r="200" />
-                            </svg>
-                            <svg version="1.1" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="250" cy="250" r="200" />
-                            </svg>
-                        </div>
-                    </label>
-                </div>
-
-                <button type="button" id="hamburger">
-                    <div class="menu-btn">
-                        <span class="icon"></span>
-                        <span class="text">MENU</span>
-                    </div>
-                </button>
-            </div>
-            <!-- Mobile Menu -->
-            <div id="mobileMenu" class="mobile-menu">
-                <a href="#">Home</a>
-                <a href="blog.html">Blog</a>
-                <a href="enquiry.html">Enquiry</a>
-                <a href="event.html">Event</a>
-            </div>
+        <div class="top-navbar collapse navbar-collapse" id="topNavbarContent">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item no-mob">
+              <a href="mailto:hi@bellsuniversity.edu.ng" class="nav-link"
+                ><i class="fa-duotone fa-envelope"></i>
+                hi@bellsuniversity.edu.ng</a
+              >
+            </li>
+            <li class="nav-item no-mob">
+              <a href="tel:2348140557872" class="nav-link">
+                <i class="fa-duotone fa-phone"></i> +(234) 81 4055 7872</a
+              >
+            </li>
+            <li class="nav-item">
+              <button class="nav-top-btn">Login</button>
+            </li>
+            <li class="nav-item">
+              <button class="nav-top-btn">Register</button>
+            </li>
+          </ul>
         </div>
-        <div class="collapse navbar-collapse" id="bottomNavbarContent">
-            <ul class="b-nav navbar-nav ms-auto">
-                <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-                <li class="nav-item"><a href="enquiry.html" class="nav-link">Enquiry</a></li>
-                <li class="nav-item"><a href="event.html" class="nav-link">Event</a></li>
-            </ul>
+        <div style="display: flex; flex-direction: row; align-items: center">
+          <div class="theme-toggle">
+            <label>
+              <input id="theme-toggle-btn" type="checkbox" checked />
+              <div class="planet"></div>
+              <div class="elements">
+                <svg
+                  version="1.1"
+                  viewBox="0 0 500 500"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle cx="250" cy="250" r="200" />
+                </svg>
+                <svg
+                  version="1.1"
+                  viewBox="0 0 500 500"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle cx="250" cy="250" r="200" />
+                </svg>
+                <svg
+                  version="1.1"
+                  viewBox="0 0 500 500"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle cx="250" cy="250" r="200" />
+                </svg>
+                <svg
+                  version="1.1"
+                  viewBox="0 0 500 500"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle cx="250" cy="250" r="200" />
+                </svg>
+                <svg
+                  version="1.1"
+                  viewBox="0 0 500 500"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle cx="250" cy="250" r="200" />
+                </svg>
+                <svg
+                  version="1.1"
+                  viewBox="0 0 500 500"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle cx="250" cy="250" r="200" />
+                </svg>
+                <svg
+                  version="1.1"
+                  viewBox="0 0 500 500"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle cx="250" cy="250" r="200" />
+                </svg>
+                <svg
+                  version="1.1"
+                  viewBox="0 0 500 500"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle cx="250" cy="250" r="200" />
+                </svg>
+              </div>
+            </label>
+          </div>
+
+          <button type="button" id="hamburger">
+            <div class="menu-btn">
+              <span class="icon"></span>
+              <span class="text">MENU</span>
+            </div>
+          </button>
         </div>
+      </div>
+      <div class="collapse navbar-collapse" id="bottomNavbarContent">
+        <ul class="b-nav navbar-nav ms-auto">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+          <li class="nav-item">
+            <a href="blog.html" class="nav-link">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a href="events.html" class="nav-link">Event</a>
+          </li>
+          <li class="nav-item">
+            <a href="news.html" class="nav-link">News</a>
+          </li>
+          <li class="nav-item">
+            <a href="facilities.html" class="nav-link">Facilities</a>
+          </li>
+          <li class="nav-item">
+            <a href="enquiry.html" class="nav-link">Enquiry</a>
+          </li>
+        </ul>
+      </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1>Welcome to the Mechatronics Engineering Department</h1>
-            <p class="sage-hoverable">Innovating for the future, today.</p>
-        </div>
-    </section>
-
-    <!-- Main Content -->
-    <main>
-        <!-- Events Section -->
-        <h2 class="upcoming-events">Upcoming Events</h2>
-        <section class="events">
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu">
+      <a href="#"><i class="fa-duotone fa-home"></i> Home</a>
+      <a href="#"><i class="fa-duotone fa-info-square"></i> About</a>
+      <a href="blog.html"><i class="fa-duotone fa-blog"></i> Blog</a>
+      <a href="events.html"><i class="fa-duotone fa-calendar"></i> Event</a>
+      <a href="news.html"><i class="fa-duotone fa-newspaper"></i> News</a>
+      <a href="facilities.html"
+        ><i class="fa-duotone fa-tools"></i> Facilities</a
+      >
+      <a href="enquiry.html"><i class="fa-duotone fa-message"></i> Enquiry</a>
+    </div>
+     <section class="events">
+            <h2 class="title">Upcoming Events</h2>
             <div class="upcoming-events-container">
-                <div class="upcoming-events-left">
-                    <div class="image-container">
-                        <img class="events-image" src="static/images/events/texh.png" alt="tech image"  loading="lazy">
-                        <div class="calendar">
-                            <p>NOV</p>
-                            <p>15</p>
+                <div class="row">
+                    <div class="upcoming-event col-12 col-md-4">
+                        <div class="event-image-container">
+                            <div class="ev-overlay"></div>
+                            <a href=""><img class="events-image" src="static/images/events/texh.png" alt="tech image"
+                                    loading="lazy"></a>
+                            <div class="ev-calendar">
+                                <div class="ev-calendar-month">
+                                    <p>NOV</p>
+                                </div>
+                                <p class="ev-calendar-date">17</p>
+                            </div>
                         </div>
+                        <a href="" style="height: 45px;">
+                            <p class="events-header">TALKS</p>
+                        </a>
+                        <a href="">
+                            <p class="events-subheader">Election Roundtable</p>
+                        </a>
+                        <p class="events-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            Perspiciatis
+                            praesentium, libero qui doloribus optio officiis esse iusto sunt, non debitis in est alias
+                            deserunt nemo nulla ducimus, minima obcaecati! Repudiandae.
+                        </p>
+                        <div class="read-more"><a href="eventdetails.html">Read More</a></div>
                     </div>
-                    
-                    <p class="events-header">TALKS</p>
-                    <p class="events-subheader">Election Roundtable</p>
-                    <p class="events-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis praesentium, libero qui doloribus optio officiis esse iusto sunt, non debitis in est alias deserunt nemo nulla ducimus, minima obcaecati! Repudiandae.
-                    </p>
-                </div>
-                <div class="upcoming-events-middle">
-                    <div class="image-container">
-                        <img class="events-image" src="static/images/events/students-jpeg.webp" alt="tech image"  loading="lazy">
-                    </div>          
-                    
-                    <p class="events-header">TALKS</p>
-                    <p class="events-subheader">Climate change</p>
-                    <p class="events-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam corporis aliquid veniam vero ut praesentium distinctio quo, fuga voluptatibus quia voluptas quisquam tempore deserunt. Asperiores dicta delectus enim incidunt alias.</p>
-                </div>
-                <div class="upcoming-events-right">
-                    <div class="image-container">
-                        <img class="events-image" src="static/images/events/machine.png" alt="tech image" loading="lazy">
+                    <div class="upcoming-event col-12 col-md-4">
+                        <div class="event-image-container">
+                            <div class="ev-overlay"></div>
+                            <a href=""><img class="events-image" src="static/images/events/students-jpeg.webp"
+                                    alt="tech image" loading="lazy"></a>
+                            <div class="ev-calendar">
+                                <div class="ev-calendar-month">
+                                    <p>NOV</p>
+                                </div>
+                                <p class="ev-calendar-date">16</p>
+                            </div>
+                        </div>
+                        <a href="" style="height: 45px;">
+                            <p class="events-header">TALKS</p>
+                        </a>
+                        <a href="">
+                            <p class="events-subheader">Climate change</p>
+                        </a>
+                        <p class="events-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam
+                            corporis
+                            aliquid veniam vero ut praesentium distinctio quo, fuga voluptatibus quia voluptas quisquam
+                            tempore deserunt. Asperiores dicta delectus enim incidunt alias. lo</p>
+                            <div class="read-more"><a href="eventdetails.html">Read More</a></div>
                     </div>
-                    
-                    <p class="events-header">SPECIAL EVENTS</p>
-                    <p class="events-subheader">Paint the Dance Floor Wonderland</p>
-                    <p class="events-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam corporis aliquid veniam vero ut praesentium distinctio quo, fuga voluptatibus quia voluptas quisquam tempore deserunt. Asperiores dicta delectus enim incidunt alias.</p>
+                    <div class="upcoming-event col-12 col-md-4">
+                        <div class="event-image-container">
+                            <div class="ev-overlay"></div>
+                            <a href=""><img class="events-image" src="static/images/events/machine.png" alt="tech image"
+                                    loading="lazy"></a>
+                            <div class="ev-calendar">
+                                <div class="ev-calendar-month">
+                                    <p>NOV</p>
+                                </div>
+                                <p class="ev-calendar-date">15</p>
+                            </div>
+                        </div>
+                        <a href="" style="height: 45px;">
+                            <p class="events-header">SPECIAL EVENTS</p>
+                        </a>
+                        <a href="">
+                            <p class="events-subheader">Paint the Dance Floor Wonderland</p>
+                        </a>
+                        <p class="events-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam
+                            corporis
+                            aliquid veniam vero ut praesentium distinctio quo, fuga voluptatibus quia voluptas quisquam
+                            tempore deserunt. Asperiores dicta delectus enim incidunt alias.</p>
+
+                            <div class="read-more"><a href="eventdetails.html">Read More</a></div>
+                            
+                    </div>
                 </div>
             </div>
-            
-            <a href="#"><p>MORE EVENTS ON VIA BELLS TECH</p></a>
+            <div class="upcoming-events-container">
+                <div class="row">
+                    <div class="upcoming-event col-12 col-md-4">
+                        <div class="event-image-container">
+                            <div class="ev-overlay"></div>
+                            <a href=""><img class="events-image" src="static/images/events/texh.png" alt="tech image"
+                                    loading="lazy"></a>
+                            <div class="ev-calendar">
+                                <div class="ev-calendar-month">
+                                    <p>NOV</p>
+                                </div>
+                                <p class="ev-calendar-date">17</p>
+                            </div>
+                        </div>
+                        <a href="" style="height: 45px;">
+                            <p class="events-header">TALKS</p>
+                        </a>
+                        <a href="">
+                            <p class="events-subheader">Election Roundtable</p>
+                        </a>
+                        <p class="events-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            Perspiciatis
+                            praesentium, libero qui doloribus optio officiis esse iusto sunt, non debitis in est alias
+                            deserunt nemo nulla ducimus, minima obcaecati! Repudiandae.
+                        </p>
+                        <div class="read-more"><a href="eventdetails.html">Read More</a></div>
+                    </div>
+                    <div class="upcoming-event col-12 col-md-4">
+                        <div class="event-image-container">
+                            <div class="ev-overlay"></div>
+                            <a href=""><img class="events-image" src="static/images/events/students-jpeg.webp"
+                                    alt="tech image" loading="lazy"></a>
+                            <div class="ev-calendar">
+                                <div class="ev-calendar-month">
+                                    <p>NOV</p>
+                                </div>
+                                <p class="ev-calendar-date">16</p>
+                            </div>
+                        </div>
+                        <a href="" style="height: 45px;">
+                            <p class="events-header">TALKS</p>
+                        </a>
+                        <a href="">
+                            <p class="events-subheader">Climate change</p>
+                        </a>
+                        <p class="events-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam
+                            corporis
+                            aliquid veniam vero ut praesentium distinctio quo, fuga voluptatibus quia voluptas quisquam
+                            tempore deserunt. Asperiores dicta delectus enim incidunt alias. lo</p>
+                            <div class="read-more"><a href="eventdetails.html">Read More</a></div>
+                    </div>
+                    <div class="upcoming-event col-12 col-md-4">
+                        <div class="event-image-container">
+                            <div class="ev-overlay"></div>
+                            <a href=""><img class="events-image" src="static/images/events/machine.png" alt="tech image"
+                                    loading="lazy"></a>
+                            <div class="ev-calendar">
+                                <div class="ev-calendar-month">
+                                    <p>NOV</p>
+                                </div>
+                                <p class="ev-calendar-date">15</p>
+                            </div>
+                        </div>
+                        <a href="" style="height: 45px;">
+                            <p class="events-header">SPECIAL EVENTS</p>
+                        </a>
+                        <a href="">
+                            <p class="events-subheader">Paint the Dance Floor Wonderland</p>
+                        </a>
+                        <p class="events-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam
+                            corporis
+                            aliquid veniam vero ut praesentium distinctio quo, fuga voluptatibus quia voluptas quisquam
+                            tempore deserunt. Asperiores dicta delectus enim incidunt alias.</p>
+
+                            <div class="read-more"><a href="eventdetails.html">Read More</a></div>
+                            
+                    </div>
+                </div>
+            </div>
+            <div class="upcoming-events-container">
+                <div class="row">
+                    <div class="upcoming-event col-12 col-md-4">
+                        <div class="event-image-container">
+                            <div class="ev-overlay"></div>
+                            <a href=""><img class="events-image" src="static/images/events/texh.png" alt="tech image"
+                                    loading="lazy"></a>
+                            <div class="ev-calendar">
+                                <div class="ev-calendar-month">
+                                    <p>NOV</p>
+                                </div>
+                                <p class="ev-calendar-date">17</p>
+                            </div>
+                        </div>
+                        <a href="" style="height: 45px;">
+                            <p class="events-header">TALKS</p>
+                        </a>
+                        <a href="">
+                            <p class="events-subheader">Election Roundtable</p>
+                        </a>
+                        <p class="events-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            Perspiciatis
+                            praesentium, libero qui doloribus optio officiis esse iusto sunt, non debitis in est alias
+                            deserunt nemo nulla ducimus, minima obcaecati! Repudiandae.
+                        </p>
+                        <div class="read-more"><a href="eventdetails.html">Read More</a></div>
+                    </div>
+                    <div class="upcoming-event col-12 col-md-4">
+                        <div class="event-image-container">
+                            <div class="ev-overlay"></div>
+                            <a href=""><img class="events-image" src="static/images/events/students-jpeg.webp"
+                                    alt="tech image" loading="lazy"></a>
+                            <div class="ev-calendar">
+                                <div class="ev-calendar-month">
+                                    <p>NOV</p>
+                                </div>
+                                <p class="ev-calendar-date">16</p>
+                            </div>
+                        </div>
+                        <a href="" style="height: 45px;">
+                            <p class="events-header">TALKS</p>
+                        </a>
+                        <a href="">
+                            <p class="events-subheader">Climate change</p>
+                        </a>
+                        <p class="events-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam
+                            corporis
+                            aliquid veniam vero ut praesentium distinctio quo, fuga voluptatibus quia voluptas quisquam
+                            tempore deserunt. Asperiores dicta delectus enim incidunt alias. lo</p>
+                            <div class="read-more"><a href="eventdetails.html">Read More</a></div>
+                    </div>
+                    <div class="upcoming-event col-12 col-md-4">
+                        <div class="event-image-container">
+                            <div class="ev-overlay"></div>
+                            <a href=""><img class="events-image" src="static/images/events/machine.png" alt="tech image"
+                                    loading="lazy"></a>
+                            <div class="ev-calendar">
+                                <div class="ev-calendar-month">
+                                    <p>NOV</p>
+                                </div>
+                                <p class="ev-calendar-date">15</p>
+                            </div>
+                        </div>
+                        <a href="" style="height: 45px;">
+                            <p class="events-header">SPECIAL EVENTS</p>
+                        </a>
+                        <a href="">
+                            <p class="events-subheader">Paint the Dance Floor Wonderland</p>
+                        </a>
+                        <p class="events-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam
+                            corporis
+                            aliquid veniam vero ut praesentium distinctio quo, fuga voluptatibus quia voluptas quisquam
+                            tempore deserunt. Asperiores dicta delectus enim incidunt alias.</p>
+
+                            <div class="read-more"><a href="eventdetails.html">Read More</a></div>
+                            
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h6 class="section-cta"><a href="#">VIEW ALL UPCOMING EVENTS</h6></a>
+                </div>
+            </div>
         </section>
 
+        <!-- Prefooter Section-->
+        
     </main>
 
     <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Mechatronics Engineering Department - All rights reserved.</p>
+    <footer class="footer-img">
+        <!-- <p>&copy; 2024 Mechatronics Engineering Department - All rights reserved.</p>
         <div class="socials">
             <a href="#">Twitter</a> | <a href="#">LinkedIn</a> | <a href="#">Instagram</a>
+        </div> -->
+        <div class="footer-opacity">
+            <div class="footer">
+                <div class="footer-content">
+                    <!--Left Section-->
+                    <div class="footer-left">
+                        <div class="">
+                            <!-- <div class="logo"> -->
+                            <a href="/" class="">
+                                <img class="bells-footer" src="static/images/bells.png" height="90px" width="90px"
+                                    alt="Bells" />
+                                <img class="logo_mct_dark-footer" src="static/images/logo-dark.png" height="55px"
+                                    width="auto" alt="BellsMCT" />
+                            </a>
+                        </div>
+                        <address class="contact-info">
+                            <p>Ota, OGUN 112104</p>
+                            <p>Telephone: <tel>+234 (0)809-123-4567</tel>
+                            </p>
+                        </address>
+                        <ul class="footer-nav">
+                            <li class="list-item"><a href='#'>CONTACT US</a></li>
+                            <li class="list-item"><a href='#'>MAPS</a></li>
+                        </ul>
+                    </div>
+                    <!--Navigtion Section-->
+                    <div class="footer-nav">
+                        <h3>Navigate</h3>
+                        <ul>
+                            <li class="list-item"><a href='#'>ALUMNI</a></li>
+                            <li class="list-item"><a href='#'>BLOG</a></li>
+                            <li class="list-item"><a href='#'>ENQUIRY</a></li>
+                            <li class="list-item"><a href='#'>EVENT</a></li>
+                            <li class="list-item"><a href='#'>LIBRARIES</a></li>
+                            <li class="list-item"><a href='#'>ONLINE LEARNING</a></li>
+                        </ul>
+                    </div>
+                    <!--Right Section-->
+                    <div class="footer-right">
+                        <h3>Bells MCT NEXUS</h3>
+                        <p>As Nigeria's first private university of technology, Bells MCT Nexus has a history that dates
+                            back to 2010 and has produced many graduates who are making great impact in the tech space
+                            globally</p>
+                        <a href="#" class="our-history-btn">Our History</a>
+                    </div>
+                </div>
+            </div>
+            <!--Footer Bottom-->
+            <div class="footer-bottom">
+                <div class="footer-bottom-left">
+                    <button class="back-to-top">&UpArrow;</button>
+                </div>
+                <div>
+                    <ul>
+                        <li><a href='#'>DISCLAIMER</a></li>
+                        <li><a href='#'>EMERGENCY SERVICES</a></li>
+                        <li><a href='#'>NONDISCRIMINATION</a></li>
+                        <li><a href='#'>PRIVACY POLICY</a></li>
+                    </ul>
+                    <ul>
+
+                        <li><a href='#'>REPORT ACCESSIBILITY ISSUES AND GET HELP</a></li>
+                        <li><a href='#'>REPORT COPYRIGHT INFRINGEMENT</a></li>
+                    </ul>
+                </div>
+
+            </div>
         </div>
     </footer>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"></script>
     <script src="static/js/main.js"></script>
-</body>
-
+    
+    <script></script>
+  </body>
 </html>

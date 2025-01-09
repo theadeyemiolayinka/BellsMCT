@@ -1,0 +1,36 @@
+{% extends 'web/layouts/main.html' %}
+
+{% block content %}
+  <!-- Main Content -->
+  <main>
+    <!-- Events Section -->
+    <section class="events" style="margin-top: 150px;">
+      <h2 class="title">Event Details</h2>
+
+      <div class="event-details-container">
+        <img src="{{ image_url }}" alt="Event Image" class="event-image" />
+        <h1 class="event-header">{{ event.title }}</h1>
+        {% if event.start_time.date == event.end_time.date %}
+          <div class="event-dates" style="display: flex; justify-content: space-between;">
+            <p><strong>Date:</strong> {{ event.start_time }}</p>
+          </div>
+        {% else %}
+          <div class="event-dates" style="display: flex; justify-content: space-between;">
+            <p><strong>Start Date:</strong> {{ event.start_time }}</p>
+            <p><strong>End Date:</strong> {{ event.end_time }}</p>
+          </div>
+        {% endif %}
+        <p class="event-description">{{ event.description }}</p>
+        <a href="/events" class="back-link">&#8592; Back to Events</a>
+      </div>
+    </section>
+  </main>
+{% endblock %}
+
+
+{% block top %}
+
+<link rel="stylesheet" href="/static/css/eventdetails.css">
+    
+{% endblock top %}
+    

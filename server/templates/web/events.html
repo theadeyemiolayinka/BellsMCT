@@ -1,0 +1,41 @@
+{% extends "web/layouts/main.html" %}
+
+{% block content %}
+    
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- Events Section -->
+        <section class="events" style="margin-top: 200px;">
+            <h2 class="title">Upcoming Events</h2>
+            <div class="upcoming-events-container">
+                <div class="row">
+                    {% for event in events %}
+                    <div class="upcoming-event col-12 col-md-4">
+                        <div class="event-image-container">
+                            <div class="ev-overlay"></div>
+                            <a href="{{ event.url }}"><img class="events-image" src="{{ event.image_url }}" alt="{{ event.title }} image" loading="lazy"></a>
+                            <div class="ev-calendar">
+                                <div class="ev-calendar-month">
+                                    <p>{{ event.start_time|date:"M" }}</p>
+                                </div>
+                                <p class="ev-calendar-date">{{ event.start_time|date:"d" }}</p>
+                            </div>
+                        </div>
+                        <a href="{{ event.url }}" style="height: 45px;">
+                            <p class="events-header">{{ event.category }}</p>
+                        </a>
+                        <a href="{{ event.url }}">
+                            <p class="events-subheader">{{ event.title }}</p>
+                        </a>
+                        <p class="events-description">{{ event.description }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+{% endblock content %}

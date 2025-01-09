@@ -127,7 +127,7 @@ body.dark-mode .events-header{
 }
 
 @media (min-width: 768px) {
-  .upcoming-events-container .upcoming-event:nth-of-type(2) {
+  .upcoming-events-container .upcoming-event:nth-of-type(even) {
     border-left: 1px solid var(--border-color);
     border-right: 1px solid var(--border-color);
   }

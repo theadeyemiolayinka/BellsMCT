@@ -13,7 +13,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Event',
             fields=[
-                ('id', models.UUIDField(primary_key=True, serialize=False)),
+                ('id', models.AutoField(primary_key=True, serialize=False)),
                 ('slug', models.SlugField(unique=True)),
                 ('title', models.CharField(max_length=100)),
                 ('description', models.TextField()),

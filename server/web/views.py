@@ -7,6 +7,7 @@ from django.shortcuts import get_object_or_404
 
 from django.contrib.auth.models import User
 from .models import Blog, Event
+from .forms import EnquiryFormSetFactory, EnquiryForm
 from django.conf import settings
 
 
@@ -23,7 +24,7 @@ def index(request):
             "category": event.category,
             "description": event.description[:150] + "...",
             "image_url": f"{settings.MEDIA_URL}uploads/{event.image}",
-            "url": f"/events/{event.slug}/",
+            "url": f"/events/{event.slug}",
         }
         for event in latest_events
     ]
@@ -126,6 +127,40 @@ def dashboard_callback(request, context):
     return context
 
 
+def events(request):
+    latest_events = Event.objects.filter(deleted_at__isnull=True).order_by(
+        "-start_time"
+    )
+    latest_events = [
+        {
+            "id": event.id,
+            "title": event.title,
+            "start_time": event.start_time,
+            "end_time": event.end_time,
+            "category": event.category,
+            "description": event.description[:150] + "...",
+            "image_url": f"{settings.MEDIA_URL}uploads/{event.image}",
+            "url": f"/events/{event.slug}",
+        }
+        for event in latest_events
+    ]
+    context = {
+        "events": latest_events,
+    }
+    return render(request, "web/events.html", context)
+
+
+def events_details(request, slug):
+    event = get_object_or_404(Event, slug=slug, deleted_at__isnull=True)
+
+    context = {
+        "event": event,
+        "image_url": f"{settings.MEDIA_URL}uploads/{event.image}",
+    }
+
+    return render(request, "web/events_details.html", context)
+
+
 def events_json(request):
     events = Event.objects.filter(deleted_at__isnull=True)
     data = [
@@ -144,3 +179,38 @@ def events_json(request):
         for event in events
     ]
     return JsonResponse(data, safe=False)
+
+
+def enquiry(request):
+    if request.method == "POST":
+        form = EnquiryForm(request.POST)
+        if form.is_valid():
+            form.save()
+            form.clean()
+            return render(
+                request,
+                "web/enquiry.html",
+                {
+                    "form": EnquiryForm(),
+                    "messages": [
+                        {
+                            "message": "Enquiry submitted successfully.",
+                            "tags": "alert-success",
+                        }
+                    ],
+                },
+                status=201,
+            )
+        else:
+            return render(
+                request,
+                "web/enquiry.html",
+                {"form": form, "errors": form.errors},
+                status=400,
+            )
+    pass
+
+    form = EnquiryForm
+    context = {"form": form}
+
+    return render(request, "web/enquiry.html", context)

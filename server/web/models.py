@@ -69,7 +69,7 @@ class Enquiry(models.Model):
         ('closed', 'Closed'),
     ]
 
-    id = models.UUIDField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100)
     email = models.EmailField()
     subject = models.TextField(max_length=100)

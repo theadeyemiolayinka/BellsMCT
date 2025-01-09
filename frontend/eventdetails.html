@@ -1,37 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-    
-    <head>
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mechatronics Engineering | Bells University</title>
-    
-    {% block top %}
-        
-    {% endblock top %}
+    <link rel="stylesheet" href="static/css/mdb.css" />
+    <link rel="stylesheet" href="static/css/fa.css" />
+    <link rel="stylesheet" href="static/css/mf.css">
 
-    <link rel="stylesheet" href="/static/css/fa.css" />
-    <link rel="stylesheet" href="/static/css/mf.css">
-    <link rel="stylesheet" href="/static/css/mdb.css" />
+    <link rel="stylesheet" href="static/css/styles.css">
+    <link rel="stylesheet" href="static/css/header.css">
+    <link rel="stylesheet" href="static/css/index.css">
+    <link rel="stylesheet" href="static/css/responsiveness.css">
+    <link rel="stylesheet" href="static/css/footer.css">
 
-    <link rel="stylesheet" href="/static/css/header.css">
-    <link rel="stylesheet" href="/static/css/footer.css">
-    <link rel="stylesheet" href="/static/css/responsiveness.css">
-    <link rel="stylesheet" href="/static/css/styles.css">
-
-    {% block noStyles %}
-        
-        <link rel="stylesheet" href="/static/css/index.css">
-        
-        <link rel="stylesheet" href="/static/css/events.css">
-        <link rel="stylesheet" href="/static/css/news.css">
-    {% endblock noStyles %}
-
+    <link rel="stylesheet" href="static/css/events.css">
+    <link rel="stylesheet" href="static/css/news.css">
+    <link rel="stylesheet" href="eventdetails.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&family=Josefin+Sans&display=swap" rel="stylesheet">
-    
+
+
 </head>
 
 <body>
@@ -39,14 +31,14 @@
     <header class="navbar navbar-expand-lg fixed-top">
         <div class="container-fluid">
             <a href="/" class="navbar-brand logo">
-                <img class="bells" src="/static/images/bells.png" height="90px" width="90px" alt="Bells" />
-                <img class="logo_mct_light" src="/static/images/logo-light.png" height="55px" width="auto"
+                <img class="bells" src="static/images/bells.png" height="90px" width="90px" alt="Bells" />
+                <img class="logo_mct_light" src="static/images/logo-light.png" height="55px" width="auto"
                     alt="BellsMCT" />
-                <img class="logo_mct_dark" src="/static/images/logo-dark.png" height="55px" width="auto"
+                <img class="logo_mct_dark" src="static/images/logo-dark.png" height="55px" width="auto"
                     alt="BellsMCT" />
-                <img class="icon_mct_light" src="/static/images/icon-light.png" height="70px" width="70px"
+                <img class="icon_mct_light" src="static/images/icon-light.png" height="70px" width="70px"
                     alt="BellsMCT" />
-                <img class="icon_mct_dark" src="/static/images/icon-dark.png" height="70px" width="70px"
+                <img class="icon_mct_dark" src="static/images/icon-dark.png" height="70px" width="70px"
                     alt="BellsMCT" />
             </a>
 
@@ -57,12 +49,12 @@
                     <li class="nav-item no-mob"><a href="tel:2348140557872" class="nav-link">
                             <i class="fa-duotone fa-phone"></i> +(234) 81 4055 7872</a>
                     </li>
-                    {% comment %} <li class="nav-item">
+                    <li class="nav-item">
                         <button class="nav-top-btn">Login</button>
                     </li>
                     <li class="nav-item">
                         <button class="nav-top-btn">Register</button>
-                    </li> {% endcomment %}
+                    </li>
                 </ul>
             </div>
             <div style="display: flex; flex-direction: row; align-items: center;">
@@ -110,31 +102,75 @@
         </div>
         <div class="collapse navbar-collapse" id="bottomNavbarContent">
             <ul class="b-nav navbar-nav ms-auto">
-                <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="/" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="/blog" class="nav-link">Blog</a></li>
-                <li class="nav-item"><a href="/events" class="nav-link">Event</a></li>
-                <li class="nav-item"><a href="/news.html" class="nav-link">News</a></li>
-                <li class="nav-item"><a href="/" class="nav-link">Facilities</a></li>
-                <li class="nav-item"><a href="/enquiry" class="nav-link">Enquiry</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+                <li class="nav-item"><a href="events.html" class="nav-link">Event</a></li>
+                <li class="nav-item"><a href="news.html" class="nav-link">News</a></li>
+                <li class="nav-item"><a href="facilities.html" class="nav-link">Facilities</a></li>
+                <li class="nav-item"><a href="enquiry.html" class="nav-link">Enquiry</a></li>
             </ul>
         </div>
     </header>
 
     <!-- Mobile Menu -->
     <div id="mobileMenu" class="mobile-menu">
-        <a href="/"><i class="fa-duotone fa-home"></i> Home</a>
-        <a href="/"><i class="fa-duotone fa-info-square"></i> About</a>
-        <a href="/blog"><i class="fa-duotone fa-blog"></i> Blog</a>
-        <a href="/events"><i class="fa-duotone fa-calendar"></i> Event</a>
-        <a href="/news"><i class="fa-duotone fa-newspaper"></i> News</a>
-        <a href="/"><i class="fa-duotone fa-tools"></i> Facilities</a>
-        <a href="/enquiry"><i class="fa-duotone fa-message"></i> Enquiry</a>
+        <a href="#"><i class="fa-duotone fa-home"></i> Home</a>
+        <a href="#"><i class="fa-duotone fa-info-square"></i> About</a>
+        <a href="blog.html"><i class="fa-duotone fa-blog"></i> Blog</a>
+        <a href="events.html"><i class="fa-duotone fa-calendar"></i> Event</a>
+        <a href="news.html"><i class="fa-duotone fa-newspaper"></i> News</a>
+        <a href="facilities.html"><i class="fa-duotone fa-tools"></i> Facilities</a>
+        <a href="enquiry.html"><i class="fa-duotone fa-message"></i> Enquiry</a>
     </div>
 
-    {% block content %}
-        
-    {% endblock content %}
+   
+
+        <!-- Events Section -->
+        <section class="events">
+            <h2 class="title">More Details</h2>
+
+    <div class="event-details-container">
+        <img src="static/images/events/texh.png" alt="Event Image" class="event-image">
+        <h1 class="event-header">ENG 301 TEST UPCOMING</h1>
+        <p class="event-dates">Start Date: November 15, 2024 - End Date: November 17, 2024</p>
+        <p class="event-description">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates, earum blanditiis deserunt quaerat repellat hic fugiat
+            nesciunt consectetur minus laudantium? Temporibus doloremque, ratione dolorum nam, quae maiores sit, necessitatibus
+            accusantium facilis voluptatem odio corrupti.
+        </p>
+        <a href="events.html" class="back-link">&#8592; Back to Events</a>
+    </div>
+
+
+            
+        </section>
+
+        <!-- Prefooter Section-->
+        <section class="prefooter">
+            <div class="prefooter-section">
+                <h2 class="section-title">Equal Opportunity and Non-Discrimination at Bells
+                    Tech</h2>
+                <p class="section-text">
+                    Bells University of Technology values diversity and actively seeks talented students, faculty, and
+                    staff from varied backgrounds, experiences, and perspectives to drive innovation in mechatronics,
+                    robotics, and artificial intelligence (AI). The University is committed to providing a nurturing
+                    environment that fosters learning, creativity, and groundbreaking research in these fields.
+
+                    Bells Tech does not discriminate on the basis of race, color, sex, gender, religion, creed, national
+                    or ethnic origin, citizenship status, age, disability, veteran
+                    status, or any other legally protected class in its admissions, academic programs, or
+                    employment practices. This commitment extends to our laboratories, research initiatives, and all
+                    university-administered programs.
+
+                    For inquiries or concerns regarding this policy, contact the Office of Equal Opportunity and
+                    Academic Excellence, Bells University of Technology, KM 8, Idiroko Road, Ota, Ogun State, Nigeria;
+                    or call +234 (0)809-123-4567.
+                </p>
+                <button class="prefooter-button">Nondiscrimination Statement</button>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer-img">
@@ -150,9 +186,9 @@
                         <div class="">
                             <!-- <div class="logo"> -->
                             <a href="/" class="">
-                                <img class="bells-footer" src="/static/images/bells.png" height="90px" width="90px"
+                                <img class="bells-footer" src="static/images/bells.png" height="90px" width="90px"
                                     alt="Bells" />
-                                <img class="logo_mct_dark-footer" src="/static/images/logo-dark.png" height="55px"
+                                <img class="logo_mct_dark-footer" src="static/images/logo-dark.png" height="55px"
                                     width="auto" alt="BellsMCT" />
                             </a>
                         </div>
@@ -211,11 +247,11 @@
         </div>
     </footer>
 
-    <script src="/static/js/mdb.js"></script>
-    <script src="/static/js/main.js"></script>
+    <script src="static/js/mdb.js"></script>
+    <script src="static/js/main.js"></script>
 
-    <script src="/static/js/gsap.js"></script>
-    <script src="/static/js/mf.js"></script>
+    <script src="static/js/gsap.js"></script>
+    <script src="static/js/mf.js"></script>
     <script>
         const cursor = new MouseFollower({
             container: document.body,
