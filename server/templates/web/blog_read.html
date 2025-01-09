@@ -1,0 +1,68 @@
+{% extends 'web/layouts/main.html' %}
+
+{% block content %}
+  <main id="blogReadMain">
+    <div id="block-entityviewcontent">
+      <section class="c-hero c-hero--large theme--on-dark">
+        <div class="c-hero__inner">
+          <div class="container">
+            <svg class="p-inherit text-color-theme-primary absolute top-0 left-1/2 -translate-x-1/2 h-full [ motion-safe:opacity-0 ]" data-js-hero-decoration="" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 99 324" style="opacity: 1;">
+              <path vector-effect="non-scaling-stroke" fill="none" fill-rule="evenodd" stroke="currentColor" stroke-width="5" d="M58.1378975,0 C-37.8847899,73.8941401 79.6696249,99.6191627 19.2125074,209.713645 C-41.2446101,319.808127 58.1378975,285.517105 82.2297626,335" transform="translate(10 -8)" style=""></path>
+            </svg>
+            <div class="c-hero__title-wrapper">
+              {% comment %} <p class="c-hero__title">Student Blog</p> {% endcomment %}
+              <h1 class="c-hero__title">{{ post.title }}</h1>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div id="block-numiko-mainpagecontent">
+      <div data-js-jumplinks-container="">
+        <div class="c-intro" data-js-intro="">
+          <div class="container" data-js-intro-container="">
+            <div class="c-intro__grid">
+              <div class="c-intro__grid-content">
+                <section class="blogger-section">
+                  <div class="blogger-top-container">
+                    <div class="blogger-section-left-colon">
+                      <div class="title">Date</div>
+                      <div class="content">{{ created_at }}</div>
+                    </div>
+                    <div class="blogger-section-middle-colon">
+                      <div class="circle">
+                        <img src="{{ author_profile }}" alt="Profile picture" class="circle-image" />
+                      </div>
+                    </div>
+                    <div class="blogger-section-right-colon">
+                      <div class="title">Written By</div>
+                      <div class="content">{{ author }}</div>
+                    </div>
+                  </div>
+                  <p class="blogger-text">{{ description }}</p>
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="display: flex; width: 100%; flex-direction: column; justify-content: center;">
+          <div class="content" style="display: flex; width: 100%; flex-direction: column; justify-content: center; align-items: center;">
+            <img src="{{ image_url }}" alt="Blog Content" class="" />
+            {{ content|safe }}
+          </div>
+          <div class="content-last-update">
+            <p style="width: 100%; text-align: center;">This page was last updated on {{ updated_at }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+{% endblock %}
+
+{% block top %}
+  <link rel="stylesheet" href="/static/css/blog_read.css" />
+{% endblock %}
+
+{% block noStyles %}
+
+{% endblock %}

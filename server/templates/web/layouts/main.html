@@ -1,12 +1,227 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+    
     <head>
-        <title>Bells Uni Mechatronics Engineering Nexus</title>
-    </head>
-    <body>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mechatronics Engineering | Bells University</title>
+    
+    {% block top %}
         
-        {% block content %}
-            
-        {% endblock content %}
-            
-    </body>
+    {% endblock top %}
+
+    <link rel="stylesheet" href="/static/css/fa.css" />
+    <link rel="stylesheet" href="/static/css/mf.css">
+    <link rel="stylesheet" href="/static/css/mdb.css" />
+
+    <link rel="stylesheet" href="/static/css/header.css">
+    <link rel="stylesheet" href="/static/css/footer.css">
+    <link rel="stylesheet" href="/static/css/responsiveness.css">
+    <link rel="stylesheet" href="/static/css/styles.css">
+
+    {% block noStyles %}
+        
+        <link rel="stylesheet" href="/static/css/index.css">
+        
+        <link rel="stylesheet" href="/static/css/events.css">
+        <link rel="stylesheet" href="/static/css/news.css">
+    {% endblock noStyles %}
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&family=Josefin+Sans&display=swap" rel="stylesheet">
+    
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+            <a href="/" class="navbar-brand logo">
+                <img class="bells" src="/static/images/bells.png" height="90px" width="90px" alt="Bells" />
+                <img class="logo_mct_light" src="/static/images/logo-light.png" height="55px" width="auto"
+                    alt="BellsMCT" />
+                <img class="logo_mct_dark" src="/static/images/logo-dark.png" height="55px" width="auto"
+                    alt="BellsMCT" />
+                <img class="icon_mct_light" src="/static/images/icon-light.png" height="70px" width="70px"
+                    alt="BellsMCT" />
+                <img class="icon_mct_dark" src="/static/images/icon-dark.png" height="70px" width="70px"
+                    alt="BellsMCT" />
+            </a>
+
+            <div class="top-navbar collapse navbar-collapse" id="topNavbarContent">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item no-mob"><a href="mailto:hi@bellsuniversity.edu.ng" class="nav-link"><i
+                                class="fa-duotone fa-envelope"></i> hi@bellsuniversity.edu.ng</a></li>
+                    <li class="nav-item no-mob"><a href="tel:2348140557872" class="nav-link">
+                            <i class="fa-duotone fa-phone"></i> +(234) 81 4055 7872</a>
+                    </li>
+                    {% comment %} <li class="nav-item">
+                        <button class="nav-top-btn">Login</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-top-btn">Register</button>
+                    </li> {% endcomment %}
+                </ul>
+            </div>
+            <div style="display: flex; flex-direction: row; align-items: center;">
+                <div class="theme-toggle">
+                    <label>
+                        <input id="theme-toggle-btn" type="checkbox" checked>
+                        <div class="planet">
+                        </div>
+                        <div class="elements">
+                            <svg version="1.1" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="250" cy="250" r="200" />
+                            </svg>
+                            <svg version="1.1" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="250" cy="250" r="200" />
+                            </svg>
+                            <svg version="1.1" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="250" cy="250" r="200" />
+                            </svg>
+                            <svg version="1.1" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="250" cy="250" r="200" />
+                            </svg>
+                            <svg version="1.1" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="250" cy="250" r="200" />
+                            </svg>
+                            <svg version="1.1" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="250" cy="250" r="200" />
+                            </svg>
+                            <svg version="1.1" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="250" cy="250" r="200" />
+                            </svg>
+                            <svg version="1.1" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="250" cy="250" r="200" />
+                            </svg>
+                        </div>
+                    </label>
+                </div>
+
+                <button type="button" id="hamburger">
+                    <div class="menu-btn">
+                        <span class="icon"></span>
+                        <span class="text">MENU</span>
+                    </div>
+                </button>
+            </div>
+        </div>
+        <div class="collapse navbar-collapse" id="bottomNavbarContent">
+            <ul class="b-nav navbar-nav ms-auto">
+                <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="/blog" class="nav-link">Blog</a></li>
+                <li class="nav-item"><a href="events.html" class="nav-link">Event</a></li>
+                <li class="nav-item"><a href="/news.html" class="nav-link">News</a></li>
+                <li class="nav-item"><a href="/" class="nav-link">Facilities</a></li>
+                <li class="nav-item"><a href="/enquiry" class="nav-link">Enquiry</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu">
+        <a href="#"><i class="fa-duotone fa-home"></i> Home</a>
+        <a href="#"><i class="fa-duotone fa-info-square"></i> About</a>
+        <a href="/blog"><i class="fa-duotone fa-blog"></i> Blog</a>
+        <a href="events.html"><i class="fa-duotone fa-calendar"></i> Event</a>
+        <a href="/news"><i class="fa-duotone fa-newspaper"></i> News</a>
+        <a href="/"><i class="fa-duotone fa-tools"></i> Facilities</a>
+        <a href="/enquiry"><i class="fa-duotone fa-message"></i> Enquiry</a>
+    </div>
+
+    {% block content %}
+        
+    {% endblock content %}
+
+    <!-- Footer -->
+    <footer class="footer-img">
+        <!-- <p>&copy; 2024 Mechatronics Engineering Department - All rights reserved.</p>
+        <div class="socials">
+            <a href="#">Twitter</a> | <a href="#">LinkedIn</a> | <a href="#">Instagram</a>
+        </div> -->
+        <div class="footer-opacity">
+            <div class="footer">
+                <div class="footer-content">
+                    <!--Left Section-->
+                    <div class="footer-left">
+                        <div class="">
+                            <!-- <div class="logo"> -->
+                            <a href="/" class="">
+                                <img class="bells-footer" src="/static/images/bells.png" height="90px" width="90px"
+                                    alt="Bells" />
+                                <img class="logo_mct_dark-footer" src="/static/images/logo-dark.png" height="55px"
+                                    width="auto" alt="BellsMCT" />
+                            </a>
+                        </div>
+                        <address class="contact-info">
+                            <p>Ota, OGUN 112104</p>
+                            <p>Telephone: <tel>+234 (0)809-123-4567</tel>
+                            </p>
+                        </address>
+                        <ul class="footer-nav">
+                            <li class="list-item"><a href='#'>CONTACT US</a></li>
+                            <li class="list-item"><a href='#'>MAPS</a></li>
+                        </ul>
+                    </div>
+                    <!--Navigtion Section-->
+                    <div class="footer-nav">
+                        <h3>Navigate</h3>
+                        <ul>
+                            <li class="list-item"><a href='#'>ALUMNI</a></li>
+                            <li class="list-item"><a href='#'>BLOG</a></li>
+                            <li class="list-item"><a href='#'>ENQUIRY</a></li>
+                            <li class="list-item"><a href='#'>EVENT</a></li>
+                            <li class="list-item"><a href='#'>LIBRARIES</a></li>
+                            <li class="list-item"><a href='#'>ONLINE LEARNING</a></li>
+                        </ul>
+                    </div>
+                    <!--Right Section-->
+                    <div class="footer-right">
+                        <h3>Bells MCT NEXUS</h3>
+                        <p>As Nigeria's first private university of technology, Bells MCT Nexus has a history that dates
+                            back to 2010 and has produced many graduates who are making great impact in the tech space
+                            globally</p>
+                        <a href="#" class="our-history-btn">Our History</a>
+                    </div>
+                </div>
+            </div>
+            <!--Footer Bottom-->
+            <div class="footer-bottom">
+                <div class="footer-bottom-left">
+                    <button class="back-to-top">&UpArrow;</button>
+                </div>
+                <div>
+                    <ul>
+                        <li><a href='#'>DISCLAIMER</a></li>
+                        <li><a href='#'>EMERGENCY SERVICES</a></li>
+                        <li><a href='#'>NONDISCRIMINATION</a></li>
+                        <li><a href='#'>PRIVACY POLICY</a></li>
+                    </ul>
+                    <ul>
+
+                        <li><a href='#'>REPORT ACCESSIBILITY ISSUES AND GET HELP</a></li>
+                        <li><a href='#'>REPORT COPYRIGHT INFRINGEMENT</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/js/mdb.js"></script>
+    <script src="/static/js/main.js"></script>
+
+    <script src="/static/js/gsap.js"></script>
+    <script src="/static/js/mf.js"></script>
+    <script>
+        const cursor = new MouseFollower({
+            container: document.body,
+            speed: 0.3
+        });
+    </script>
+</body>
+
 </html>

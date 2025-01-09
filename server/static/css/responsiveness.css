@@ -1,0 +1,74 @@
+@media (max-width: 425px) {
+    header {
+        height: 70px !important;
+    }
+
+    header.navbar {
+        padding: 0;
+        justify-content: center;
+    }
+
+    .logo {
+        height: 60px !important;
+    }
+
+    .logo img.mct,
+    header .logo_mct_dark,
+    header .logo_mct_light,
+    header .icon_mct_dark,
+    header .icon_mct_light {
+        width: auto;
+        height: 45px !important;
+    }
+
+    .logo img.bells {
+        width: 60px !important;
+        height: 60px !important;
+    }
+
+    .theme-toggle {
+        transform: scale(0.8) translateX(42px);
+    }
+
+    #hamburger {
+        transform: scale(0.8) translateY(6px);
+    }
+
+    #mobileMenu a {
+        font-size: 1.1rem;
+        margin: 0.75rem 0;
+    }
+
+
+
+    /* INDEX */
+    .hero-content h1 {
+        font-size: 2.6rem;
+    }
+
+    .hero-content p {
+        font-size: 1.2rem;
+        margin-left: 0;
+    }
+
+    section .title {
+        font-size: 2.6rem;
+    }
+}
+
+@media (max-width: 320px) {
+
+    /* INDEX */
+    .hero-content h1 {
+        font-size: 2.3rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+        margin-left: 0;
+    }
+
+    .hero {
+        height: 70vh;
+    }
+}

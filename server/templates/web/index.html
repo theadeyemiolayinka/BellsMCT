@@ -1,5 +1,179 @@
 {% extends "web/layouts/main.html" %}
 
 {% block content %}
-    <h2>Hello World!</h2>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Bells Mechatronics Engineering Nexus</h1>
+            <p class="sage-hoverable">Innovating for the future, today.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <!-- News Section -->
+        <section class="news">
+            <h2 class="title">Latest News</h2>
+            <div class="news-container">
+                <div class="row news-sep">
+                    <div class="col-md-6 p-0 d-flex flex-column">
+                        <div class="news-card main-card">
+                            <div class="main-img-ctn">
+                                <a href="#">
+                                    <img src="static/images/news/one.jpg" class="card-img-top"
+                                        alt="Main Article Image"></a>
+                            </div>
+                            <div class="news-card-body">
+                                <h6 class="text-muted sage-hoverable">Education, Business, & Law</h6>
+                                <h5 class="card-title"><a href="#">Penn GSE dean on meeting and making the moment</a>
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 p-0">
+                        <div class="row" style="margin: 0;">
+                            <div class="col-sm-6 p-0">
+                                <div class="news-card right-card">
+                                    <div class="news-card-img">
+                                        <a href="#">
+                                            <img src="static/images/news/teo.jpg" class="card-img-top"
+                                                alt="Article 1 Image"></a>
+                                    </div>
+                                    <div class="news-card-body">
+                                        <h6 class="text-muted sage-hoverable">Arts, Humanities, & Social Sciences</h6>
+                                        <h5 class="card-title">
+                                            <a href="#">Students fill critical behind-the-scenes Election Day roles for
+                                                NBC
+                                                News</a>
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6 p-0">
+                                <div class="news-card right-card">
+                                    <div class="news-card-img">
+                                        <a href="#">
+                                            <img src="static/images/news/three.jpg" class="card-img-top"
+                                                alt="Article 2 Image"></a>
+                                    </div>
+                                    <div class="news-card-body">
+                                        <h6 class="text-muted sage-hoverable">Sports</h6>
+                                        <h5 class="card-title">
+                                            <a href="#">Men’s soccer clinches third-straight Ivy League regular season
+                                                title</a>
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6 p-0">
+                                <div class="news-card right-card">
+                                    <div class="news-card-img">
+                                        <a href="#">
+                                            <img src="static/images/news/four.jpg" class="card-img-top"
+                                                alt="Article 3 Image"></a>
+                                    </div>
+                                    <div class="news-card-body">
+                                        <h6 class="text-muted sage-hoverable">Science & Technology</h6>
+                                        <h5 class="card-title">
+                                            <a href="#">Developing kidneys from scratch</a>
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6 p-0">
+                                <div class="news-card right-card">
+                                    <div class="news-card-img">
+                                        <a href="#">
+                                            <img src="static/images/news/five.jpg" class="card-img-top"
+                                                alt="Article 4 Image"></a>
+                                    </div>
+                                    <div class="news-card-body">
+                                        <h6 class="text-muted sage-hoverable">Campus & Community</h6>
+                                        <h5 class="card-title">
+                                            <a href="#">Penn expands its Yellow Ribbon program for veterans and their
+                                                beneficiaries</a>
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h6 class="section-cta"><a href="#">MORE NEWS VIA BELLS MCT TODAY</a></h6>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events Section -->
+        <section class="events">
+            <h2 class="title">Upcoming Events</h2>
+            <div class="upcoming-events-container">
+                <div class="row">
+                    {% for event in events %}
+                    <div class="upcoming-event col-12 col-md-4">
+                        <div class="event-image-container">
+                            <div class="ev-overlay"></div>
+                            <a href="{{ event.url }}"><img class="events-image" src="{{ event.image_url }}" alt="{{ event.title }} image" loading="lazy"></a>
+                            <div class="ev-calendar">
+                                <div class="ev-calendar-month">
+                                    <p>{{ event.start_time|date:"M" }}</p>
+                                </div>
+                                <p class="ev-calendar-date">{{ event.start_time|date:"d" }}</p>
+                            </div>
+                        </div>
+                        <a href="{{ event.url }}" style="height: 45px;">
+                            <p class="events-header">{{ event.category }}</p>
+                        </a>
+                        <a href="{{ event.url }}">
+                            <p class="events-subheader">{{ event.title }}</p>
+                        </a>
+                        <p class="events-description">{{ event.description }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h6 class="section-cta"><a href="#">VIEW ALL UPCOMING EVENTS</h6></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Prefooter Section-->
+        <section class="prefooter">
+            <div class="prefooter-section">
+                <h2 class="section-title">Equal Opportunity and Non-Discrimination at Bells
+                    Tech</h2>
+                <p class="section-text">
+                    Bells University of Technology values diversity and actively seeks talented students, faculty, and
+                    staff from varied backgrounds, experiences, and perspectives to drive innovation in mechatronics,
+                    robotics, and artificial intelligence (AI). The University is committed to providing a nurturing
+                    environment that fosters learning, creativity, and groundbreaking research in these fields.
+
+                    Bells Tech does not discriminate on the basis of race, color, sex, gender, religion, creed, national
+                    or ethnic origin, citizenship status, age, disability, veteran
+                    status, or any other legally protected class in its admissions, academic programs, or
+                    employment practices. This commitment extends to our laboratories, research initiatives, and all
+                    university-administered programs.
+
+                    For inquiries or concerns regarding this policy, contact the Office of Equal Opportunity and
+                    Academic Excellence, Bells University of Technology, KM 8, Idiroko Road, Ota, Ogun State, Nigeria;
+                    or call +234 (0)809-123-4567.
+                </p>
+                <button class="prefooter-button">Nondiscrimination Statement</button>
+            </div>
+        </section>
+    </main>
+
 {% endblock content %}

@@ -2,21 +2,76 @@ import json
 import random
 from django.http import HttpResponse, JsonResponse
 
-# from django.shortcuts import render
-from django_bunny.storage import BunnyStorage
+from django.shortcuts import render
+from django.shortcuts import get_object_or_404
 
 from django.contrib.auth.models import User
-from .models import Event
+from .models import Blog, Event
+from django.conf import settings
 
 
 def index(request):
-    def list_files_in_bunnycdn():
-        files = BunnyStorage().listdir("/")
-        return files
+    latest_events = Event.objects.filter(deleted_at__isnull=True).order_by(
+        "-start_time"
+    )[:3]
+    latest_events = [
+        {
+            "id": event.id,
+            "title": event.title,
+            "start_time": event.start_time,
+            "end_time": event.end_time,
+            "category": event.category,
+            "description": event.description[:150] + "...",
+            "image_url": f"{settings.MEDIA_URL}uploads/{event.image}",
+            "url": f"/events/{event.slug}/",
+        }
+        for event in latest_events
+    ]
+    context = {
+        "events": latest_events,
+    }
+    return render(request, "web/index.html", context)
 
-    files = list_files_in_bunnycdn()
-    return HttpResponse(files.__str__())
-    # return render(request, 'web/index.html')
+
+def blog(request):
+    posts = Blog.objects.filter(hidden_at__isnull=True)
+    posts = [
+        {
+            "id": str(post.id),
+            "title": post.title,
+            "author": post.author.username,
+            "created_at": post.created_at.strftime("%B %d, %Y"),
+            "updated_at": post.updated_at.strftime("%B %d, %Y"),
+            "tags": post.tags,
+            "description": post.description[:150] + "..." if post.description else "",
+            "image_url": f"{settings.MEDIA_URL}uploads/{post.image}",
+            "url": f"/blog/{post.slug}",
+        }
+        for post in posts
+    ]
+    context = {
+        "posts": posts,
+    }
+    return render(request, "web/blog.html", context)
+
+
+def blog_read(request, slug):
+    post = get_object_or_404(Blog, slug=slug, hidden_at__isnull=True)
+
+    context = {
+        "post": post,
+        "author": post.author.username,
+        "author_profile": "https://placehold.co/600x400?text="
+        + post.author.username[0].upper(),
+        "tags": post.tags,
+        "content": post.content,
+        "description": post.description[:150] + "..." if post.description else "",
+        "created_at": post.created_at.strftime("%B %d, %Y"),
+        "updated_at": post.updated_at.strftime("%B %d, %Y"),
+        "image_url": f"{settings.MEDIA_URL}uploads/{post.image}",
+    }
+
+    return render(request, "web/blog_read.html", context)
 
 
 def dashboard_callback(request, context):
@@ -78,7 +133,12 @@ def events_json(request):
             "id": str(event.id),
             "title": event.title,
             "start": event.start_time.strftime("%Y-%m-%d %H:%M:%S"),
-            "end": None if event.start_time.strftime("%Y-%m-%d %H:%M:%S") == event.end_time.strftime("%Y-%m-%d %H:%M:%S") else event.end_time.strftime("%Y-%m-%d %H:%M:%S"), 
+            "end": (
+                None
+                if event.start_time.strftime("%Y-%m-%d %H:%M:%S")
+                == event.end_time.strftime("%Y-%m-%d %H:%M:%S")
+                else event.end_time.strftime("%Y-%m-%d %H:%M:%S")
+            ),
             "url": f"/admin/web/event/{event.id}/change/",
         }
         for event in events
