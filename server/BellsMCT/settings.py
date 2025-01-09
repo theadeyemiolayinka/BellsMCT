@@ -57,6 +57,8 @@ INSTALLED_APPS = [
     "django_ckeditor_5",
     "django_bunny",
     "sorl.thumbnail",
+    'easy_thumbnails',
+    'filer',
     # 'newsletter',
     # Apps
     "web.apps.WebConfig",
@@ -117,6 +119,16 @@ DATABASES = {
 }
 
 NEWSLETTER_THUMBNAIL = "sorl-thumbnail"
+
+THUMBNAIL_PROCESSORS = (
+    'easy_thumbnails.processors.colorspace',
+    'easy_thumbnails.processors.autocrop',
+    #'easy_thumbnails.processors.scale_and_crop',
+    'filer.thumbnail_processors.scale_and_crop_with_subject_location',
+    'easy_thumbnails.processors.filters',
+)
+
+FILER_CANONICAL_URL = 'sharing/'
 
 ####################################
 ##  BUNNY CONFIGURATION ##
@@ -456,6 +468,11 @@ UNFOLD = {
                         "title": _("Blog"),
                         "icon": "rss_feed",
                         "link": reverse_lazy("admin:web_blog_changelist"),
+                    },
+                    {
+                        "title": _("Events"),
+                        "icon": "calendar_month",
+                        "link": reverse_lazy("admin:web_event_changelist"),
                     },
                     {
                         "title": _("Enquiry"),
