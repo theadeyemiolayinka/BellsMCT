@@ -16,6 +16,7 @@ from django_ckeditor_5.fields import CKEditor5Field
 from .models import Blog
 from .models import Enquiry
 from .models import Event
+from .models import News
 
 from django.core.mail import send_mail
 from django.conf import settings
@@ -237,7 +238,62 @@ class EventAdmin(ModelAdmin):
         return actions
 
 
+class NewsAdminForm(forms.ModelForm):
+    description = CKEditor5Field(config_name="extends")
 
+    class Meta:
+        model = News
+        fields = "__all__"
+
+
+class NewsAdmin(ModelAdmin):
+    form = NewsAdminForm
+
+    search_fields = ("title", "category", "description")
+    list_filter = ("category", "created_at", "updated_at", "deleted_at")
+
+    def is_active(self, obj):
+        return obj.deleted_at is None
+
+    is_active.boolean = True
+    is_active.short_description = "Active"
+
+    list_display = ("title", "category", "created_at", "updated_at", "is_active")
+    actions = ["delete_news", "restore_news"]
+
+    def get_form(self, request, obj=None, **kwargs):
+        form = super().get_form(request, obj, **kwargs)
+        if not obj:
+            form.base_fields.pop("slug", None)
+        form.base_fields.pop("id", None)
+        form.base_fields.pop("deleted_at", None)
+        return form
+
+    def save_model(self, request, obj, form, change):
+        if not obj.id:
+            obj.id = uuid.uuid4()
+        super().save_model(request, obj, form, change)
+
+    def delete_news(self, request, queryset):
+        queryset.update(deleted_at=timezone.now())
+
+    delete_news.short_description = "Hide selected news"
+
+    def restore_news(self, request, queryset):
+        queryset.update(deleted_at=None)
+
+    restore_news.short_description = "Restore selected news"
+
+    def get_actions(self, request):
+        actions = super().get_actions(request)
+        if 'delete_selected' in actions:
+            del actions['delete_selected']
+        return actions
+
+
+
+
+admin.site.register(News, NewsAdmin)
 admin.site.register(Event, EventAdmin)
 admin.site.register(Blog, BlogAdmin)
 admin.site.register(Enquiry, EnquiryAdmin)

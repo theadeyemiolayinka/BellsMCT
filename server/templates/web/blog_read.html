@@ -47,8 +47,11 @@
         </div>
         <div style="display: flex; width: 100%; flex-direction: column; justify-content: center;">
           <div class="content" style="display: flex; width: 100%; flex-direction: column; justify-content: center; align-items: center;">
-            <img src="{{ image_url }}" alt="Blog Content" class="" />
-            {{ content|safe }}
+            <div style="width: 70%;">
+              <img src="{{ image_url }}" alt="Blog Content" class="" />
+              <br /><br />
+              {{ content|safe }}
+            </div>
           </div>
           <div class="content-last-update">
             <p style="width: 100%; text-align: center;">This page was last updated on {{ updated_at }}</p>

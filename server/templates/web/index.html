@@ -17,99 +17,46 @@
         <section class="news">
             <h2 class="title">Latest News</h2>
             <div class="news-container">
-                <div class="row news-sep">
-                    <div class="col-md-6 p-0 d-flex flex-column">
-                        <div class="news-card main-card">
-                            <div class="main-img-ctn">
-                                <a href="#">
-                                    <img src="static/images/news/one.jpg" class="card-img-top"
-                                        alt="Main Article Image"></a>
-                            </div>
-                            <div class="news-card-body">
-                                <h6 class="text-muted sage-hoverable">Education, Business, & Law</h6>
-                                <h5 class="card-title"><a href="#">Penn GSE dean on meeting and making the moment</a>
-                                </h5>
-                            </div>
-                        </div>
+            <div class="row news-sep">
+                <div class="col-md-6 p-0 d-flex flex-column">
+                <div class="news-card main-card">
+                    <div class="main-img-ctn">
+                    <a href="{{ news.0.url }}">
+                        <img src="{{ news.0.image_url }}" class="card-img-top" alt="{{ news.0.title }} Image"></a>
                     </div>
-
-                    <div class="col-md-6 p-0">
-                        <div class="row" style="margin: 0;">
-                            <div class="col-sm-6 p-0">
-                                <div class="news-card right-card">
-                                    <div class="news-card-img">
-                                        <a href="#">
-                                            <img src="static/images/news/teo.jpg" class="card-img-top"
-                                                alt="Article 1 Image"></a>
-                                    </div>
-                                    <div class="news-card-body">
-                                        <h6 class="text-muted sage-hoverable">Arts, Humanities, & Social Sciences</h6>
-                                        <h5 class="card-title">
-                                            <a href="#">Students fill critical behind-the-scenes Election Day roles for
-                                                NBC
-                                                News</a>
-                                        </h5>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-6 p-0">
-                                <div class="news-card right-card">
-                                    <div class="news-card-img">
-                                        <a href="#">
-                                            <img src="static/images/news/three.jpg" class="card-img-top"
-                                                alt="Article 2 Image"></a>
-                                    </div>
-                                    <div class="news-card-body">
-                                        <h6 class="text-muted sage-hoverable">Sports</h6>
-                                        <h5 class="card-title">
-                                            <a href="#">Men’s soccer clinches third-straight Ivy League regular season
-                                                title</a>
-                                        </h5>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-6 p-0">
-                                <div class="news-card right-card">
-                                    <div class="news-card-img">
-                                        <a href="#">
-                                            <img src="static/images/news/four.jpg" class="card-img-top"
-                                                alt="Article 3 Image"></a>
-                                    </div>
-                                    <div class="news-card-body">
-                                        <h6 class="text-muted sage-hoverable">Science & Technology</h6>
-                                        <h5 class="card-title">
-                                            <a href="#">Developing kidneys from scratch</a>
-                                        </h5>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-6 p-0">
-                                <div class="news-card right-card">
-                                    <div class="news-card-img">
-                                        <a href="#">
-                                            <img src="static/images/news/five.jpg" class="card-img-top"
-                                                alt="Article 4 Image"></a>
-                                    </div>
-                                    <div class="news-card-body">
-                                        <h6 class="text-muted sage-hoverable">Campus & Community</h6>
-                                        <h5 class="card-title">
-                                            <a href="#">Penn expands its Yellow Ribbon program for veterans and their
-                                                beneficiaries</a>
-                                        </h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="news-card-body">
+                    <h6 class="text-muted sage-hoverable">{{ news.0.category }}</h6>
+                    <h5 class="card-title"><a href="{{ news.0.url }}">{{ news.0.title }}</a></h5>
                     </div>
                 </div>
+                </div>
+
+                <div class="col-md-6 p-0">
+                <div class="row" style="margin: 0;">
+                    {% for article in news|slice:"1:" %}
+                    <div class="col-sm-6 p-0">
+                    <div class="news-card right-card">
+                        <div class="news-card-img">
+                        <a href="{{ article.url }}">
+                            <img src="{{ article.image_url }}" class="card-img-top" alt="{{ article.title }} Image"></a>
+                        </div>
+                        <div class="news-card-body">
+                        <h6 class="text-muted sage-hoverable">{{ article.category }}</h6>
+                        <h5 class="card-title">
+                            <a href="{{ article.url }}">{{ article.title }}</a>
+                        </h5>
+                        </div>
+                    </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                </div>
+            </div>
             </div>
 
             <div class="row">
                 <div class="col-12 text-center">
-                    <h6 class="section-cta"><a href="#">MORE NEWS VIA BELLS MCT TODAY</a></h6>
+                    <h6 class="section-cta"><a href="/news">MORE NEWS VIA BELLS MCT TODAY</a></h6>
                 </div>
             </div>
         </section>
@@ -145,7 +92,7 @@
 
             <div class="row">
                 <div class="col-12 text-center">
-                    <h6 class="section-cta"><a href="#">VIEW ALL UPCOMING EVENTS</h6></a>
+                    <h6 class="section-cta"><a href="/events">VIEW ALL UPCOMING EVENTS</h6></a>
                 </div>
             </div>
         </section>

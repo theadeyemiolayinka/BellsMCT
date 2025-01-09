@@ -475,6 +475,11 @@ UNFOLD = {
                         "link": reverse_lazy("admin:web_event_changelist"),
                     },
                     {
+                        "title": _("News"),
+                        "icon": "campaign",
+                        "link": reverse_lazy("admin:web_news_changelist"),
+                    },
+                    {
                         "title": _("Enquiry"),
                         "icon": "help",
                         "badge": "BellsMCT.settings.enquiry_badge_callback",

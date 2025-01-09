@@ -1,0 +1,30 @@
+{% extends 'web/layouts/main.html' %}
+
+{% block content %}
+  <!-- Main Content -->
+  <main>
+    <!-- News Section -->
+    <section class="news" style="margin-top: 200px;">
+      <h2 class="title">Latest News</h2>
+          <div class="col-12 p-0">
+            <div class="row" style="margin: 0;">
+              {% for article in news %}
+                <div class="col-sm-6 p-0" style="margin-bottom: 20px;">
+                  <div class="news-card right-card">
+                    <div class="news-card-img">
+                      <a href="{{ article.url }}"><img src="{{ article.image_url }}" class="card-img-top" alt="{{ article.title }} Image" /></a>
+                    </div>
+                    <div class="news-card-body">
+                      <h6 class="text-muted sage-hoverable">{{ article.category }}</h6>
+                      <h5 class="card-title"><a href="{{ article.url }}">{{ article.title }}</a></h5>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+{% endblock %}

@@ -6,7 +6,7 @@ from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 
 from django.contrib.auth.models import User
-from .models import Blog, Event
+from .models import Blog, Event, News
 from .forms import EnquiryFormSetFactory, EnquiryForm
 from django.conf import settings
 
@@ -28,8 +28,22 @@ def index(request):
         }
         for event in latest_events
     ]
+
+    latest_news = News.objects.filter(deleted_at__isnull=True)[:5]
+    latest_news = [
+        {
+            "id": news.id,
+            "title": news.title,
+            "category": news.category,
+            "description": news.description[:150] + "...",
+            "image_url": f"{settings.MEDIA_URL}uploads/{news.image}",
+            "url": f"/news/{news.slug}",
+        }
+        for news in latest_news
+    ]
     context = {
         "events": latest_events,
+        "news": latest_news
     }
     return render(request, "web/index.html", context)
 
@@ -125,6 +139,37 @@ def dashboard_callback(request, context):
         }
     )
     return context
+
+
+def news(request):
+    latest_news = News.objects.filter(deleted_at__isnull=True)
+
+    latest_news = [
+        {
+            "id": news.id,
+            "title": news.title,
+            "category": news.category,
+            "description": news.description[:150] + "...",
+            "image_url": f"{settings.MEDIA_URL}uploads/{news.image}",
+            "url": f"/news/{news.slug}",
+        }
+        for news in latest_news
+    ]
+    context = {
+        "news": latest_news,
+    }
+    return render(request, "web/news.html", context)
+
+
+def news_details(request, slug):
+    news = get_object_or_404(News, slug=slug, deleted_at__isnull=True)
+
+    context = {
+        "news": news,
+        "image_url": f"{settings.MEDIA_URL}uploads/{news.image}",
+    }
+
+    return render(request, "web/news_details.html", context)
 
 
 def events(request):

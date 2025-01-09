@@ -10,6 +10,9 @@
       <div class="event-details-container">
         <img src="{{ image_url }}" alt="Event Image" class="event-image" />
         <h1 class="event-header">{{ event.title }}</h1>
+        <div class="event-dates" style="margin-bottom: 0;">
+          <p><strong>Location:</strong> {{ event.location }}</p>
+        </div>
         {% if event.start_time.date == event.end_time.date %}
           <div class="event-dates" style="display: flex; justify-content: space-between;">
             <p><strong>Date:</strong> {{ event.start_time }}</p>
