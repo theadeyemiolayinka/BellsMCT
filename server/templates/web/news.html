@@ -11,7 +11,7 @@
               {% for article in news %}
                 <div class="col-sm-6 p-0" style="margin-bottom: 20px;">
                   <div class="news-card right-card">
-                    <div class="news-card-img">
+                    <div class="news-card-img" style="overflow: hidden;">
                       <a href="{{ article.url }}"><img src="{{ article.image_url }}" class="card-img-top" alt="{{ article.title }} Image" /></a>
                     </div>
                     <div class="news-card-body">

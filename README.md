@@ -1,6 +1,6 @@
 # BellsMCT Nexus
 
-BellsMCT Nexus is a Django-based web application for a departmental website
+BellsMCT Nexus is a Django-based web application for a departmental website at Bells University Department of Mecatronics
 
 ## Features
 
@@ -68,7 +68,19 @@ BellsMCT Nexus is a Django-based web application for a departmental website
 
 1. Open your web browser and go to `http://127.0.0.1:8000/`.
 2. Log in with the superuser credentials you created.
-3. Start managing and tracking your resources and activities.
+
+### Using Docker
+
+1. Build the Docker image:
+    ```bash
+    docker build -t bellsmct-nexus .
+    ```
+2. Run the Docker container:
+    ```bash
+    docker run -p 8000:8000 bellsmct-nexus
+    ```
+3. Open your web browser and go to `http://127.0.0.1:8000/`.
+4. Create and Log in with the superuser credentials as deacribed.
 
 ## Contributing
 
